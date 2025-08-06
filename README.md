@@ -30,62 +30,62 @@
   
   ### 🚀 &nbsp;About Me
   
-  ```typescript
-  #!/usr/bin/env node
-  // -*- coding: utf-8 -*-
-  
-  interface SecurityResearcher {
-      name: string;
-      role: string;
-      languages: string[];
-      frameworks: string[];
-      security_focus: string[];
-      specialties: string[];
-      current_projects: string[];
-  }
-  
-  class HaxurnProfile implements SecurityResearcher {
-      name = "Samson Tesfaye";
-      role = "Security Researcher & Full Stack Developer";
-      
-      languages = [
-          "TypeScript", "Go", "JavaScript", "Python", "C++", "C",
-          "Bash", "PowerShell", "Dart", "HTML", "CSS"
-      ];
-      
-      frameworks = [
-          "Next.js", "Flutter", "Fastify", "Hono", "React Native",
-          "TailwindCSS", "Monorepo"
-      ];
-      
-      security_focus = [
-          "Web Application Security", "Network Security", "Reverse Engineering",
-          "PWN", "System Security", "CTF Competitions"
-      ];
-      
-      specialties = ["Web Security", "Development", "Learning"];
-      current_projects = ["Learning PWN Basics", "Web Security Fundamentals"];
-      
-      getDailyRoutine(): Record<string, string> {
-          return {
-              "morning": "☕ Coffee + Learning + Code Review",
-              "afternoon": "🔍 Security Research + Development",
-              "evening": "💻 Building Projects + Practice",
-              "night": "🌙 Study + CTF Challenges"
-          };
-      }
-      
-      executeHack(): void {
-          console.log("🛡️ Learning security, one step at a time!");
-          console.log("💻 Building and breaking to understand better!");
-      }
-  }
-  
-  const haxurn = new HaxurnProfile();
-  haxurn.executeHack();
-  ```
-
 </div>
+
+```typescript
+#!/usr/bin/env node
+// -*- coding: utf-8 -*-
+
+interface SecurityResearcher {
+    name: string;
+    role: string;
+    languages: string[];
+    frameworks: string[];
+    security_focus: string[];
+    specialties: string[];
+    current_projects: string[];
+}
+
+class HaxurnProfile implements SecurityResearcher {
+    name = "Samson Tesfaye";
+    role = "Security Researcher & Full Stack Developer";
+    
+    languages = [
+        "TypeScript", "Go", "JavaScript", "Python", "C++", "C",
+        "Bash", "PowerShell", "Dart", "HTML", "CSS"
+    ];
+    
+    frameworks = [
+        "Next.js", "Flutter", "Fastify", "Hono", "React Native",
+        "TailwindCSS", "Monorepo"
+    ];
+    
+    security_focus = [
+        "Web Application Security", "Network Security", "Reverse Engineering",
+        "PWN", "System Security", "CTF Competitions"
+    ];
+    
+    specialties = ["Web Security", "Development", "Learning"];
+    current_projects = ["Learning PWN Basics", "Web Security Fundamentals"];
+    
+    getDailyRoutine(): Record<string, string> {
+        return {
+            "morning": "☕ Coffee + Learning + Code Review",
+            "afternoon": "🔍 Security Research + Development",
+            "evening": "💻 Building Projects + Practice",
+            "night": "🌙 Study + CTF Challenges"
+        };
+    }
+    
+    executeHack(): void {
+        console.log("🛡️ Learning security, one step at a time!");
+        console.log("💻 Building and breaking to understand better!");
+    }
+}
+
+const haxurn = new HaxurnProfile();
+haxurn.executeHack();
+```
 
 
 <!-- Tech Stack & Skills -->
