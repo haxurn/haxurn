@@ -85,18 +85,7 @@
   haxurn.executeHack();
   ```
   
-</div>
-
-<!-- Dynamic Typing Animation -->
-<p align="center">
-     <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=24&duration=3000&pause=1000&color=FF6B6B&center=true&vCenter=true&multiline=true&width=700&height=150&lines=🎯+Security+Enthusiast+%7C+Full+Stack+Developer;🔐+Learning+Web+Security+%7C+Development;⚡+TypeScript+•+Go+•+Python+•+JavaScript;🛡️+CTF+•+Security+Research+•+Practice;🚀+Always+Learning+•+Always+Building;💻+Code+•+Learn+•+Grow!" alt="Typing Animation"/>
-</p>
-
-<br>
-<br>
-<br>
-<br>
-
+</div
 
 <!-- Tech Stack & Skills -->
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
@@ -109,15 +98,7 @@
 
 <div align="center">
 
-### 🛡️ &nbsp;Security Focus Areas
-<p>
-  <img src="https://img.shields.io/badge/Web%20App%20Security-FF6B6B?style=for-the-badge&logo=shield&logoColor=white" alt="Web App Security"/>
-  <img src="https://img.shields.io/badge/Network%20Security-4ECDC4?style=for-the-badge&logo=wireshark&logoColor=white" alt="Network Security"/>
-  <img src="https://img.shields.io/badge/Reverse%20Engineering-45B7D1?style=for-the-badge&logo=ghidra&logoColor=white" alt="Reverse Engineering"/>
-  <img src="https://img.shields.io/badge/PWN-96CEB4?style=for-the-badge&logo=hackthebox&logoColor=white" alt="PWN"/>
-  <img src="https://img.shields.io/badge/System%20Security-FFEAA7?style=for-the-badge&logo=linux&logoColor=black" alt="System Security"/>
-  <img src="https://img.shields.io/badge/CTF-FF6B6B?style=for-the-badge&logo=flag&logoColor=white" alt="CTF"/>
-</p>
+
 
 ### 💻 &nbsp;Programming Languages
 <p>
@@ -251,15 +232,7 @@
 </div>
 <!-- REPOSITORY-LIST:END -->
 
-<div align="center">
-  <h3>📊 Repository Statistics</h3>
-  <p>
-    <img src="https://img.shields.io/badge/Total%20Repositories-📦-FF6B6B?style=flat-square&labelColor=1e1e1e" alt="Total Repos"/>
-    <img src="https://img.shields.io/badge/Public%20Repos-🌐-4ECDC4?style=flat-square&labelColor=1e1e1e" alt="Public Repos"/>
-    <img src="https://img.shields.io/badge/Private%20Repos-🔒-45B7D1?style=flat-square&labelColor=1e1e1e" alt="Private Repos"/>
-    <img src="https://img.shields.io/badge/Total%20Stars-⭐-96CEB4?style=flat-square&labelColor=1e1e1e" alt="Total Stars"/>
-  </p>
-</div>
+
 
 <div align="center">
   <h3>🚀 Explore More</h3>
@@ -321,90 +294,11 @@
 </div>
 
 
-<!-- Latest Blog Posts -->
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 
-<h2 align="center">
-  <img src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif" width="35">
-  &nbsp;Latest Blog Posts&nbsp;
-  <img src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif" width="35">
-</h2>
 
-<div align="center">
-  
-  <!-- BLOG-POST-LIST:START -->
-  <p>📝 Blog posts will appear here automatically via GitHub Actions</p>
-  <!-- BLOG-POST-LIST:END -->
-  
-  <br>
-  
-  <p>
-       <img src="https://img.shields.io/badge/Security%20Learning-📊-FF6B6B?style=flat-square&labelColor=1e1e1e" alt="Security Learning"/>
-   <img src="https://img.shields.io/badge/Web%20Security-🔍-4ECDC4?style=flat-square&labelColor=1e1e1e" alt="Web Security"/>
-   <img src="https://img.shields.io/badge/Development%20Tips-⛓️-45B7D1?style=flat-square&labelColor=1e1e1e" alt="Development Tips"/>
-   <img src="https://img.shields.io/badge/CTF%20Writeups-💡-96CEB4?style=flat-square&labelColor=1e1e1e" alt="CTF Writeups"/>
-  </p>
-  
-</div>
 
-<!-- Current Focus -->
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 
-<h2 align="center">
-  <img src="https://media.giphy.com/media/VgCDAzcKvsR6OM0uWg/giphy.gif" width="50">
-  &nbsp;Current Focus&nbsp;
-</h2>
 
-<div align="center">
-  <table>
-    <tr>
-      <td align="center" width="25%">
-        <img src="https://media.giphy.com/media/LMt9638dO8dftAjtco/giphy.gif" width="80">
-                 <br><b>🌐 Web Security Learning</b>
-         <br><sub>OWASP Top 10 & Basics</sub>
-      </td>
-      <td align="center" width="25%">
-        <img src="https://media.giphy.com/media/QssGEmpkyEOhBCb7e1/giphy.gif" width="80">
-                 <br><b>🔍 Learning Reverse Engineering</b>
-         <br><sub>Basic binary analysis</sub>
-      </td>
-      <td align="center" width="25%">
-        <img src="https://media.giphy.com/media/WUlplcMpOCEmTGBtBW/giphy.gif" width="80">
-                 <br><b>💀 Learning PWN</b>
-         <br><sub>Basic buffer overflows</sub>
-      </td>
-      <td align="center" width="25%">
-        <img src="https://media.giphy.com/media/26tn33aiTi1jkl6H6/giphy.gif" width="80">
-                 <br><b>🚩 CTF Practice</b>
-         <br><sub>Learning Capture The Flag</sub>
-      </td>
-    </tr>
-    <tr>
-      <td align="center" width="33%">
-        <img src="https://media.giphy.com/media/l0HlTy9x8FZo0XO1i/giphy.gif" width="80">
-                 <br><b>🖧 Learning Network Security</b>
-         <br><sub>Basic packet analysis</sub>
-      </td>
-      <td align="center" width="33%">
-        <img src="https://media.giphy.com/media/3o7qDEq2bMbcbPRQ2c/giphy.gif" width="80">
-                 <br><b>🖥️ Learning System Security</b>
-         <br><sub>OS basics & security concepts</sub>
-      </td>
-      <td align="center" width="33%">
-        <img src="https://media.giphy.com/media/26xBwdIuRJiAIqHwA/giphy.gif" width="80">
-                 <br><b>💻 Full Stack Development</b>
-         <br><sub>TypeScript + JavaScript + Modern frameworks</sub>
-      </td>
-    </tr>
-  </table>
-</div>
-
-<!-- Snake Animation -->
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/haxurn/haxurn/output/github-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/haxurn/haxurn/output/github-snake.svg" />
-  <img alt="github-snake" src="https://raw.githubusercontent.com/haxurn/haxurn/output/github-snake.svg" />
-</picture>
 
 <!-- Connect Section -->
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
