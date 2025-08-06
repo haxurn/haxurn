@@ -87,15 +87,10 @@
   
 </div>
 
-<!-- Dynamic Typing Animation with Wave Colors -->
+<!-- Dynamic Typing Animation -->
 <p align="center">
-     <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=26&duration=2500&pause=800&color=FF6B6B&center=true&vCenter=true&multiline=true&width=800&height=160&lines=🎯+Security+Enthusiast+%7C+Full+Stack+Developer;🔐+Learning+Web+Security+%7C+Development;⚡+TypeScript+•+Go+•+Python+•+JavaScript;🛡️+CTF+•+Security+Research+•+Practice;🚀+Always+Learning+•+Always+Building;💻+Code+•+Learn+•+Grow!" alt="Typing Animation"/>
+     <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=24&duration=3000&pause=1000&color=FF6B6B&center=true&vCenter=true&multiline=true&width=700&height=150&lines=🎯+Security+Enthusiast+%7C+Full+Stack+Developer;🔐+Learning+Web+Security+%7C+Development;⚡+TypeScript+•+Go+•+Python+•+JavaScript;🛡️+CTF+•+Security+Research+•+Practice;🚀+Always+Learning+•+Always+Building;💻+Code+•+Learn+•+Grow!" alt="Typing Animation"/>
 </p>
-
-<!-- Animated Wave Divider -->
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:FF6B6B,25:4ECDC4,50:45B7D1,75:96CEB4,100:FFEAA7&height=60&section=divider&animation=fadeIn&fontAlignY=35"/>
-</div>
 
 <br>
 <br>
@@ -104,38 +99,28 @@
 
 
 <!-- Tech Stack & Skills -->
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:FF6B6B,25:4ECDC4,50:45B7D1,75:96CEB4,100:FFEAA7&height=80&section=divider&animation=fadeIn&fontAlignY=35"/>
-</div>
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 
 <h2 align="center">
-  <img src="https://media2.giphy.com/media/QssGEmpkyEOhBCb7e1/giphy.gif?cid=ecf05e47a0n3gi1bfqntqmob8g9aid1oyj2wr3ds3mg700bl&rid=giphy.gif" width="40"> 
-  &nbsp;⚡ Tech Arsenal ⚡&nbsp;
-  <img src="https://media2.giphy.com/media/QssGEmpkyEOhBCb7e1/giphy.gif?cid=ecf05e47a0n3gi1bfqntqmob8g9aid1oyj2wr3ds3mg700bl&rid=giphy.gif" width="40">
+  <img src="https://media2.giphy.com/media/QssGEmpkyEOhBCb7e1/giphy.gif?cid=ecf05e47a0n3gi1bfqntqmob8g9aid1oyj2wr3ds3mg700bl&rid=giphy.gif" width="32"> 
+  &nbsp;Tech Arsenal&nbsp;
+  <img src="https://media2.giphy.com/media/QssGEmpkyEOhBCb7e1/giphy.gif?cid=ecf05e47a0n3gi1bfqntqmob8g9aid1oyj2wr3ds3mg700bl&rid=giphy.gif" width="32">
 </h2>
-
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:FFEAA7,25:96CEB4,50:45B7D1,75:4ECDC4,100:FF6B6B&height=60&section=divider&animation=fadeIn&fontAlignY=35"/>
-</div>
 
 <div align="center">
 
 ### 🛡️ &nbsp;Security Focus Areas
-<div align="center">
+<p>
   <img src="https://img.shields.io/badge/Web%20App%20Security-FF6B6B?style=for-the-badge&logo=shield&logoColor=white" alt="Web App Security"/>
   <img src="https://img.shields.io/badge/Network%20Security-4ECDC4?style=for-the-badge&logo=wireshark&logoColor=white" alt="Network Security"/>
   <img src="https://img.shields.io/badge/Reverse%20Engineering-45B7D1?style=for-the-badge&logo=ghidra&logoColor=white" alt="Reverse Engineering"/>
   <img src="https://img.shields.io/badge/PWN-96CEB4?style=for-the-badge&logo=hackthebox&logoColor=white" alt="PWN"/>
   <img src="https://img.shields.io/badge/System%20Security-FFEAA7?style=for-the-badge&logo=linux&logoColor=black" alt="System Security"/>
   <img src="https://img.shields.io/badge/CTF-FF6B6B?style=for-the-badge&logo=flag&logoColor=white" alt="CTF"/>
-</div>
-
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:96CEB4,25:45B7D1,50:4ECDC4,75:FF6B6B,100:FFEAA7&height=40&section=divider&animation=fadeIn&fontAlignY=35"/>
-</div>
+</p>
 
 ### 💻 &nbsp;Programming Languages
-<div align="center">
+<p>
   <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript"/>
   <img src="https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white" alt="Go"/>
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript"/>
@@ -147,14 +132,10 @@
   <img src="https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white" alt="Dart"/>
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5"/>
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3"/>
-</div>
-
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:45B7D1,25:4ECDC4,50:FF6B6B,75:96CEB4,100:FFEAA7&height=40&section=divider&animation=fadeIn&fontAlignY=35"/>
-</div>
+</p>
 
 ### 🌐 &nbsp;Frameworks & Technologies
-<div align="center">
+<p>
   <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js"/>
   <img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white" alt="Flutter"/>
   <img src="https://img.shields.io/badge/Fastify-000000?style=for-the-badge&logo=fastify&logoColor=white" alt="Fastify"/>
@@ -162,14 +143,10 @@
   <img src="https://img.shields.io/badge/React%20Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React Native"/>
   <img src="https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="TailwindCSS"/>
   <img src="https://img.shields.io/badge/Monorepo-4ECDC4?style=for-the-badge&logo=git&logoColor=white" alt="Monorepo"/>
-</div>
-
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:4ECDC4,25:FF6B6B,50:96CEB4,75:45B7D1,100:FFEAA7&height=40&section=divider&animation=fadeIn&fontAlignY=35"/>
-</div>
+</p>
 
 ### 🛠️ &nbsp;Security Tools & Platforms
-<div align="center">
+<p>
   <img src="https://img.shields.io/badge/Burp%20Suite-FF6633?style=for-the-badge&logo=burp-suite&logoColor=white" alt="Burp Suite"/>
   <img src="https://img.shields.io/badge/Metasploit-008C8C?style=for-the-badge&logo=metasploit&logoColor=white" alt="Metasploit"/>
   <img src="https://img.shields.io/badge/Wireshark-1679A7?style=for-the-badge&logo=wireshark&logoColor=white" alt="Wireshark"/>
@@ -177,38 +154,26 @@
   <img src="https://img.shields.io/badge/GDB-FF6B6B?style=for-the-badge&logo=gnu&logoColor=white" alt="GDB"/>
   <img src="https://img.shields.io/badge/Ghidra-4ECDC4?style=for-the-badge&logo=ghidra&logoColor=white" alt="Ghidra"/>
   <img src="https://img.shields.io/badge/IDA%20Pro-45B7D1?style=for-the-badge&logo=ida&logoColor=white" alt="IDA Pro"/>
-</div>
-
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:96CEB4,25:45B7D1,50:4ECDC4,75:FF6B6B,100:FFEAA7&height=40&section=divider&animation=fadeIn&fontAlignY=35"/>
-</div>
+</p>
 
 ### 🐧 &nbsp;Operating Systems
-<div align="center">
+<p>
   <img src="https://img.shields.io/badge/Kali%20Linux-268BEE?style=for-the-badge&logo=kalilinux&logoColor=white" alt="Kali Linux"/>
   <img src="https://img.shields.io/badge/Parrot%20OS-66CCCC?style=for-the-badge&logo=parrot&logoColor=white" alt="Parrot OS"/>
   <img src="https://img.shields.io/badge/BlackArch-000000?style=for-the-badge&logo=blackarch&logoColor=white" alt="BlackArch"/>
   <img src="https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white" alt="Ubuntu"/>
   <img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white" alt="Windows"/>
-</div>
-
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:45B7D1,25:4ECDC4,50:FF6B6B,75:96CEB4,100:FFEAA7&height=40&section=divider&animation=fadeIn&fontAlignY=35"/>
-</div>
+</p>
 
 ### 🎯 &nbsp;Bug Bounty & CTF Platforms
-<div align="center">
+<p>
   <img src="https://img.shields.io/badge/HackerOne-494649?style=for-the-badge&logo=hackerone&logoColor=white" alt="HackerOne"/>
   <img src="https://img.shields.io/badge/Bugcrowd-F16822?style=for-the-badge&logo=bugcrowd&logoColor=white" alt="Bugcrowd"/>
   <img src="https://img.shields.io/badge/Intigriti-1E88E5?style=for-the-badge&logo=intigriti&logoColor=white" alt="Intigriti"/>
   <img src="https://img.shields.io/badge/HackTheBox-9FEF00?style=for-the-badge&logo=hackthebox&logoColor=black" alt="HackTheBox"/>
   <img src="https://img.shields.io/badge/TryHackMe-212C42?style=for-the-badge&logo=tryhackme&logoColor=white" alt="TryHackMe"/>
   <img src="https://img.shields.io/badge/PicoCTF-96CEB4?style=for-the-badge&logo=flag&logoColor=white" alt="PicoCTF"/>
-</div>
-
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:FFEAA7,25:96CEB4,50:45B7D1,75:4ECDC4,100:FF6B6B&height=40&section=divider&animation=fadeIn&fontAlignY=35"/>
-</div>
+</p>
 
 </div>
 
@@ -217,19 +182,13 @@
 
 
 <!-- My Repositories -->
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:FF6B6B,25:4ECDC4,50:45B7D1,75:96CEB4,100:FFEAA7&height=80&section=divider&animation=fadeIn&fontAlignY=35"/>
-</div>
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 
 <h2 align="center">
-  <img src="https://media.giphy.com/media/iY8CRBdQXODJSCERIr/giphy.gif" width="40">
-  &nbsp;🚀 My Repositories 🚀&nbsp;
-  <img src="https://media.giphy.com/media/iY8CRBdQXODJSCERIr/giphy.gif" width="40">
+  <img src="https://media.giphy.com/media/iY8CRBdQXODJSCERIr/giphy.gif" width="35">
+  &nbsp;My Repositories&nbsp;
+  <img src="https://media.giphy.com/media/iY8CRBdQXODJSCERIr/giphy.gif" width="35">
 </h2>
-
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:FFEAA7,25:96CEB4,50:45B7D1,75:4ECDC4,100:FF6B6B&height=60&section=divider&animation=fadeIn&fontAlignY=35"/>
-</div>
 
 <div align="center">
   <h3>🚀 Featured Projects</h3>
@@ -327,19 +286,13 @@
 
 
 <!-- GitHub Analytics -->
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:96CEB4,25:45B7D1,50:4ECDC4,75:FF6B6B,100:FFEAA7&height=80&section=divider&animation=fadeIn&fontAlignY=35"/>
-</div>
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 
 <h2 align="center">
-  <img src="https://media.giphy.com/media/W5eoZHPpUx9sapR0eu/giphy.gif" width="35px">
-  &nbsp;📊 GitHub Analytics 📊&nbsp;
-  <img src="https://media.giphy.com/media/W5eoZHPpUx9sapR0eu/giphy.gif" width="35px">
+  <img src="https://media.giphy.com/media/W5eoZHPpUx9sapR0eu/giphy.gif" width="30px">
+  &nbsp;GitHub Analytics&nbsp;
+  <img src="https://media.giphy.com/media/W5eoZHPpUx9sapR0eu/giphy.gif" width="30px">
 </h2>
-
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:45B7D1,25:4ECDC4,50:FF6B6B,75:96CEB4,100:FFEAA7&height=60&section=divider&animation=fadeIn&fontAlignY=35"/>
-</div>
 
 <div align="center">
   <table>
@@ -369,19 +322,13 @@
 
 
 <!-- Latest Blog Posts -->
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:4ECDC4,25:FF6B6B,50:96CEB4,75:45B7D1,100:FFEAA7&height=80&section=divider&animation=fadeIn&fontAlignY=35"/>
-</div>
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 
 <h2 align="center">
-  <img src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif" width="40">
-  &nbsp;📝 Latest Blog Posts 📝&nbsp;
-  <img src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif" width="40">
+  <img src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif" width="35">
+  &nbsp;Latest Blog Posts&nbsp;
+  <img src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif" width="35">
 </h2>
-
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:FFEAA7,25:96CEB4,50:45B7D1,75:4ECDC4,100:FF6B6B&height=60&section=divider&animation=fadeIn&fontAlignY=35"/>
-</div>
 
 <div align="center">
   
@@ -401,18 +348,12 @@
 </div>
 
 <!-- Current Focus -->
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:96CEB4,25:45B7D1,50:4ECDC4,75:FF6B6B,100:FFEAA7&height=80&section=divider&animation=fadeIn&fontAlignY=35"/>
-</div>
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 
 <h2 align="center">
-  <img src="https://media.giphy.com/media/VgCDAzcKvsR6OM0uWg/giphy.gif" width="55">
-  &nbsp;🎯 Current Focus 🎯&nbsp;
+  <img src="https://media.giphy.com/media/VgCDAzcKvsR6OM0uWg/giphy.gif" width="50">
+  &nbsp;Current Focus&nbsp;
 </h2>
-
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:45B7D1,25:4ECDC4,50:FF6B6B,75:96CEB4,100:FFEAA7&height=60&section=divider&animation=fadeIn&fontAlignY=35"/>
-</div>
 
 <div align="center">
   <table>
@@ -460,25 +401,19 @@
 
 <!-- Snake Animation -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/github-snake.svg"" />
-  <img alt="github-snake" src="./assets/github-snake.svg" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/haxurn/haxurn/output/github-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/haxurn/haxurn/output/github-snake.svg" />
+  <img alt="github-snake" src="https://raw.githubusercontent.com/haxurn/haxurn/output/github-snake.svg" />
 </picture>
 
 <!-- Connect Section -->
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:FF6B6B,25:4ECDC4,50:45B7D1,75:96CEB4,100:FFEAA7&height=80&section=divider&animation=fadeIn&fontAlignY=35"/>
-</div>
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 
 <h2 align="center">
-  <img src="https://media.giphy.com/media/LnQjpWaON8nhr21vNW/giphy.gif" width="65">
-  &nbsp;🤝 Let's Connect 🤝&nbsp;
-  <img src="https://media.giphy.com/media/LnQjpWaON8nhr21vNW/giphy.gif" width="65">
+  <img src="https://media.giphy.com/media/LnQjpWaON8nhr21vNW/giphy.gif" width="60">
+  &nbsp;Let's Connect&nbsp;
+  <img src="https://media.giphy.com/media/LnQjpWaON8nhr21vNW/giphy.gif" width="60">
 </h2>
-
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:FFEAA7,25:96CEB4,50:45B7D1,75:4ECDC4,100:FF6B6B&height=60&section=divider&animation=fadeIn&fontAlignY=35"/>
-</div>
 
 <div align="center">
   <a href="https://x.com/haxurn" target="_blank">
@@ -500,15 +435,11 @@
 
 <div align="center">
   <br>
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:FF6B6B,25:4ECDC4,50:45B7D1,75:96CEB4,100:FFEAA7&height=120&section=footer&text=💻%20Code%20•%20Learn%20•%20Grow%20💻&fontSize=26&fontColor=000000&animation=fadeIn&fontAlignY=70"/>
+     <img src="https://capsule-render.vercel.app/api?type=waving&color=0:FF6B6B,25:4ECDC4,50:45B7D1,75:96CEB4,100:FFEAA7&height=120&section=footer&text=💻%20Code%20•%20Learn%20•%20Grow%20💻&fontSize=24&fontColor=000000&animation=fadeIn&fontAlignY=70"/>
 </div>
 
 <div align="center">
   <img src="https://komarev.com/ghpvc/?username=haxurn&label=Profile%20Views&color=FF6B6B&style=flat" alt="Profile Views"/>
   <br>
-  <sub>🔥 Learning and growing • ⭐ Star repos that catch your interest!</sub>
-  <br>
-  <br>
-  <!-- Animated Footer Wave -->
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:FFEAA7,25:96CEB4,50:45B7D1,75:4ECDC4,100:FF6B6B&height=40&section=footer&animation=fadeIn&fontAlignY=35"/>
+     <sub>🔥 Learning and growing • ⭐ Star repos that catch your interest!</sub>
 </div>
