@@ -53,37 +53,37 @@
           "Bash", "PowerShell", "Dart", "HTML", "CSS"
       ];
       
-             frameworks = [
-           "Next.js", "Flutter", "Fastify", "Hono", "React Native",
-           "TailwindCSS", "Monorepo"
-       ];
+      frameworks = [
+          "Next.js", "Flutter", "Fastify", "Hono", "React Native",
+          "TailwindCSS", "Monorepo"
+      ];
       
       security_focus = [
           "Web Application Security", "Network Security", "Reverse Engineering",
           "PWN", "System Security", "CTF Competitions"
       ];
       
-             specialties = ["Web Security", "Development", "Learning"];
-             current_projects = ["Learning PWN Basics", "Web Security Fundamentals"];
+      specialties = ["Web Security", "Development", "Learning"];
+      current_projects = ["Learning PWN Basics", "Web Security Fundamentals"];
       
-             getDailyRoutine(): Record<string, string> {
-           return {
-               "morning": "☕ Coffee + Learning + Code Review",
-               "afternoon": "🔍 Security Research + Development",
-               "evening": "💻 Building Projects + Practice",
-               "night": "🌙 Study + CTF Challenges"
-           };
-       }
-       
-       executeHack(): void {
-           console.log("🛡️ Learning security, one step at a time!");
-           console.log("💻 Building and breaking to understand better!");
-       }
+      getDailyRoutine(): Record<string, string> {
+          return {
+              "morning": "☕ Coffee + Learning + Code Review",
+              "afternoon": "🔍 Security Research + Development",
+              "evening": "💻 Building Projects + Practice",
+              "night": "🌙 Study + CTF Challenges"
+          };
+      }
+      
+      executeHack(): void {
+          console.log("🛡️ Learning security, one step at a time!");
+          console.log("💻 Building and breaking to understand better!");
+      }
   }
   
   const haxurn = new HaxurnProfile();
   haxurn.executeHack();
-```
+  ```
 
 </div>
 
