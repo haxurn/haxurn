@@ -1,137 +1,323 @@
-<!-- Banner Image (if you have a custom banner, ensure it matches the new color scheme) -->
-<!-- ![saturn](https://github.com/user-attachments/assets/3ff73a31-2d57-4f01-bbc9-1bf11c3acadb) -->
-
-<p align="right">
-<img src="https://github.com/user-attachments/assets/31b288e9-3269-4d1d-9525-f2b3eef738c1" alt="Saturn" width="300"/>
-</p>
-
-
-
-<div style="border: 2px solid #E7CFAA; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
-
-<!-- Follow Buttons -->
-<p align="center">
-  <a href="https://komarev.com/ghpvc/?username=haxurn&color=E7CFAA"><img src="https://komarev.com/ghpvc/?username=haxurn&color=E7CFAA" alt="Profile Views"></a>
-  <a href="https://github.com/haxurn"><img src="https://img.shields.io/github/followers/haxurn?label=Follow&style=social" alt="GitHub followers"></a>
-  <a href="https://twitter.com/haxurn"><img src="https://img.shields.io/twitter/follow/haxurn?label=Follow&style=social" alt="Twitter Follow"></a>
-</p>
-
+<div align="center">
+  
+  <!-- Animated Banner -->
+  <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:FF6B6B,25:4ECDC4,50:45B7D1,75:96CEB4,100:FFEAA7&height=200&section=header&text=HAXURN&fontSize=80&fontColor=000000&animation=fadeIn&fontAlignY=38&desc=Security%20Researcher%20•%20Bug%20Bounty%20Hunter%20•%20Full%20Stack%20Developer&descAlignY=60&descSize=18"/>
+  
+  <!-- Modern Hacker Logo -->
+  <div style="margin-top: -60px;">
+    <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Desktop%20Computer.png" alt="Desktop Computer" width="80"/>
+    <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Shield.png" alt="Shield" width="80"/>
+    <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Laptop.png" alt="Laptop" width="80"/>
+  </div>
+  
 </div>
-<div style="border: 2px solid #E7CFAA; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
 
-<!-- Who Am I -->
+<!-- Profile Metrics -->
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=haxurn&label=Profile%20Views&color=FF6B6B&style=flat-square" alt="Profile Views"/>
+  <img src="https://img.shields.io/github/followers/haxurn?label=Followers&style=flat-square&color=4ECDC4&logoColor=white" alt="GitHub followers"/>
+  <img src="https://img.shields.io/github/stars/haxurn?label=Total%20Stars&style=flat-square&color=45B7D1" alt="GitHub stars"/>
+  <img src="https://img.shields.io/badge/Focus-Security%20%26%20Development-96CEB4?style=flat-square" alt="Focus"/>
+</p>
+
+<!-- Animated Divider -->
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
+
+<br>
+
+<!-- About Me Section -->
+<div align="center">
+  
+  ### 🚀 &nbsp;About Me
+  
+  ```typescript
+  #!/usr/bin/env node
+  // -*- coding: utf-8 -*-
+  
+  interface SecurityResearcher {
+      name: string;
+      role: string;
+      languages: string[];
+      frameworks: string[];
+      security_focus: string[];
+      specialties: string[];
+      current_projects: string[];
+  }
+  
+  class HaxurnProfile implements SecurityResearcher {
+      name = "Samson Tesfaye";
+      role = "Security Researcher & Full Stack Developer";
+      
+      languages = [
+          "TypeScript", "Go", "JavaScript", "Python", "C++", "C",
+          "Bash", "PowerShell", "Dart", "HTML", "CSS"
+      ];
+      
+             frameworks = [
+           "Next.js", "Flutter", "Fastify", "Hono", "React Native",
+           "TailwindCSS", "Monorepo"
+       ];
+      
+      security_focus = [
+          "Web Application Security", "Network Security", "Reverse Engineering",
+          "PWN", "System Security", "CTF Competitions"
+      ];
+      
+             specialties = ["Web Security", "Development", "Learning"];
+             current_projects = ["Learning PWN Basics", "Web Security Fundamentals"];
+      
+             getDailyRoutine(): Record<string, string> {
+           return {
+               "morning": "☕ Coffee + Learning + Code Review",
+               "afternoon": "🔍 Security Research + Development",
+               "evening": "💻 Building Projects + Practice",
+               "night": "🌙 Study + CTF Challenges"
+           };
+       }
+       
+       executeHack(): void {
+           console.log("🛡️ Learning security, one step at a time!");
+           console.log("💻 Building and breaking to understand better!");
+       }
+  }
+  
+  const haxurn = new HaxurnProfile();
+  haxurn.executeHack();
+  ```
+  
+</div>
+
+<!-- Dynamic Typing Animation with Wave Colors -->
+<p align="center">
+     <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=26&duration=2500&pause=800&color=FF6B6B&center=true&vCenter=true&multiline=true&width=800&height=160&lines=🎯+Security+Enthusiast+%7C+Full+Stack+Developer;🔐+Learning+Web+Security+%7C+Development;⚡+TypeScript+•+Go+•+Python+•+JavaScript;🛡️+CTF+•+Security+Research+•+Practice;🚀+Always+Learning+•+Always+Building;💻+Code+•+Learn+•+Grow!" alt="Typing Animation"/>
+</p>
+
+<!-- Animated Wave Divider -->
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:FF6B6B,25:4ECDC4,50:45B7D1,75:96CEB4,100:FFEAA7&height=60&section=divider&animation=fadeIn&fontAlignY=35"/>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+
+
+<!-- Tech Stack & Skills -->
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:FF6B6B,25:4ECDC4,50:45B7D1,75:96CEB4,100:FFEAA7&height=80&section=divider&animation=fadeIn&fontAlignY=35"/>
+</div>
+
 <h2 align="center">
-  <img src="https://see.fontimg.com/api/renderfont4/z8mYw/eyJyIjoiZnMiLCJoIjoxMDgsInciOjEyNTAsImZzIjo4NiwiZmdjIjoiI0U3Q0ZBQSIsImJnYyI6IiMwMDAwMDAiLCJ0IjoxfQ/V2hvIEFtIEk/karasha.png" width="200" alt="Who Am I">
+  <img src="https://media2.giphy.com/media/QssGEmpkyEOhBCb7e1/giphy.gif?cid=ecf05e47a0n3gi1bfqntqmob8g9aid1oyj2wr3ds3mg700bl&rid=giphy.gif" width="40"> 
+  &nbsp;⚡ Tech Arsenal ⚡&nbsp;
+  <img src="https://media2.giphy.com/media/QssGEmpkyEOhBCb7e1/giphy.gif?cid=ecf05e47a0n3gi1bfqntqmob8g9aid1oyj2wr3ds3mg700bl&rid=giphy.gif" width="40">
 </h2>
 
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:FFEAA7,25:96CEB4,50:45B7D1,75:4ECDC4,100:FF6B6B&height=60&section=divider&animation=fadeIn&fontAlignY=35"/>
+</div>
 
-<!-- Typing SVG -->
-<p align="center">
-  <a href="https://github.com/haxurn"><img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&pause=1000&color=E7CFAA&center=true&vCenter=true&width=435&lines=Script+Kiddie;Bug+Bounty+Hunter;Web3%20Dev%20%26%20Audit;Solidity+•+Bash+•+Python+Dev" alt="Typing SVG" align="center"/></a>
-</p>
+<div align="center">
 
-  
+### 🛡️ &nbsp;Security Focus Areas
+<div align="center">
+  <img src="https://img.shields.io/badge/Web%20App%20Security-FF6B6B?style=for-the-badge&logo=shield&logoColor=white" alt="Web App Security"/>
+  <img src="https://img.shields.io/badge/Network%20Security-4ECDC4?style=for-the-badge&logo=wireshark&logoColor=white" alt="Network Security"/>
+  <img src="https://img.shields.io/badge/Reverse%20Engineering-45B7D1?style=for-the-badge&logo=ghidra&logoColor=white" alt="Reverse Engineering"/>
+  <img src="https://img.shields.io/badge/PWN-96CEB4?style=for-the-badge&logo=hackthebox&logoColor=white" alt="PWN"/>
+  <img src="https://img.shields.io/badge/System%20Security-FFEAA7?style=for-the-badge&logo=linux&logoColor=black" alt="System Security"/>
+  <img src="https://img.shields.io/badge/CTF-FF6B6B?style=for-the-badge&logo=flag&logoColor=white" alt="CTF"/>
+</div>
 
-```python
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:96CEB4,25:45B7D1,50:4ECDC4,75:FF6B6B,100:FFEAA7&height=40&section=divider&animation=fadeIn&fontAlignY=35"/>
+</div>
 
+### 💻 &nbsp;Programming Languages
+<div align="center">
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript"/>
+  <img src="https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white" alt="Go"/>
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript"/>
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
+  <img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white" alt="C++"/>
+  <img src="https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white" alt="C"/>
+  <img src="https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white" alt="Bash"/>
+  <img src="https://img.shields.io/badge/PowerShell-5391FE?style=for-the-badge&logo=powershell&logoColor=white" alt="PowerShell"/>
+  <img src="https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white" alt="Dart"/>
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5"/>
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3"/>
+</div>
 
-class SecurityResearcher:
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:45B7D1,25:4ECDC4,50:FF6B6B,75:96CEB4,100:FFEAA7&height=40&section=divider&animation=fadeIn&fontAlignY=35"/>
+</div>
 
-    def __init__(self):
-        self.name = "Samson Tesfaye"
-        self.role = "Security Researcher, Software Developer"
-        self.language_spoken = ["am_ET", "en_US", "or_ET"]
+### 🌐 &nbsp;Frameworks & Technologies
+<div align="center">
+  <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js"/>
+  <img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white" alt="Flutter"/>
+  <img src="https://img.shields.io/badge/Fastify-000000?style=for-the-badge&logo=fastify&logoColor=white" alt="Fastify"/>
+  <img src="https://img.shields.io/badge/Hono-FF6600?style=for-the-badge&logo=hono&logoColor=white" alt="Hono"/>
+  <img src="https://img.shields.io/badge/React%20Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React Native"/>
+  <img src="https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="TailwindCSS"/>
+  <img src="https://img.shields.io/badge/Monorepo-4ECDC4?style=for-the-badge&logo=git&logoColor=white" alt="Monorepo"/>
+</div>
 
-    def say_hi(self):
-        print("Thanks for stopping by! Take a look around and see what exciting things I've been working on.")
-        print(f"Check out my portfolio at: {self.portfolio}")
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:4ECDC4,25:FF6B6B,50:96CEB4,75:45B7D1,100:FFEAA7&height=40&section=divider&animation=fadeIn&fontAlignY=35"/>
+</div>
 
+### 🛠️ &nbsp;Security Tools & Platforms
+<div align="center">
+  <img src="https://img.shields.io/badge/Burp%20Suite-FF6633?style=for-the-badge&logo=burp-suite&logoColor=white" alt="Burp Suite"/>
+  <img src="https://img.shields.io/badge/Metasploit-008C8C?style=for-the-badge&logo=metasploit&logoColor=white" alt="Metasploit"/>
+  <img src="https://img.shields.io/badge/Wireshark-1679A7?style=for-the-badge&logo=wireshark&logoColor=white" alt="Wireshark"/>
+  <img src="https://img.shields.io/badge/Nmap-4682B4?style=for-the-badge&logo=nmap&logoColor=white" alt="Nmap"/>
+  <img src="https://img.shields.io/badge/GDB-FF6B6B?style=for-the-badge&logo=gnu&logoColor=white" alt="GDB"/>
+  <img src="https://img.shields.io/badge/Ghidra-4ECDC4?style=for-the-badge&logo=ghidra&logoColor=white" alt="Ghidra"/>
+  <img src="https://img.shields.io/badge/IDA%20Pro-45B7D1?style=for-the-badge&logo=ida&logoColor=white" alt="IDA Pro"/>
+</div>
 
-me = SecurityResearcher()
-me.say_hi()
-```
-<br>
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:96CEB4,25:45B7D1,50:4ECDC4,75:FF6B6B,100:FFEAA7&height=40&section=divider&animation=fadeIn&fontAlignY=35"/>
+</div>
+
+### 🐧 &nbsp;Operating Systems
+<div align="center">
+  <img src="https://img.shields.io/badge/Kali%20Linux-268BEE?style=for-the-badge&logo=kalilinux&logoColor=white" alt="Kali Linux"/>
+  <img src="https://img.shields.io/badge/Parrot%20OS-66CCCC?style=for-the-badge&logo=parrot&logoColor=white" alt="Parrot OS"/>
+  <img src="https://img.shields.io/badge/BlackArch-000000?style=for-the-badge&logo=blackarch&logoColor=white" alt="BlackArch"/>
+  <img src="https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white" alt="Ubuntu"/>
+  <img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white" alt="Windows"/>
+</div>
+
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:45B7D1,25:4ECDC4,50:FF6B6B,75:96CEB4,100:FFEAA7&height=40&section=divider&animation=fadeIn&fontAlignY=35"/>
+</div>
+
+### 🎯 &nbsp;Bug Bounty & CTF Platforms
+<div align="center">
+  <img src="https://img.shields.io/badge/HackerOne-494649?style=for-the-badge&logo=hackerone&logoColor=white" alt="HackerOne"/>
+  <img src="https://img.shields.io/badge/Bugcrowd-F16822?style=for-the-badge&logo=bugcrowd&logoColor=white" alt="Bugcrowd"/>
+  <img src="https://img.shields.io/badge/Intigriti-1E88E5?style=for-the-badge&logo=intigriti&logoColor=white" alt="Intigriti"/>
+  <img src="https://img.shields.io/badge/HackTheBox-9FEF00?style=for-the-badge&logo=hackthebox&logoColor=black" alt="HackTheBox"/>
+  <img src="https://img.shields.io/badge/TryHackMe-212C42?style=for-the-badge&logo=tryhackme&logoColor=white" alt="TryHackMe"/>
+  <img src="https://img.shields.io/badge/PicoCTF-96CEB4?style=for-the-badge&logo=flag&logoColor=white" alt="PicoCTF"/>
+</div>
+
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:FFEAA7,25:96CEB4,50:45B7D1,75:4ECDC4,100:FF6B6B&height=40&section=divider&animation=fadeIn&fontAlignY=35"/>
+</div>
 
 </div>
 
 <br>
 <br>
-<br>
-<br>
 
 
-  <!-- Knowledge & Skills -->
-<p align="left" style="display: flex; align-items: center;">
-  <img src="https://see.fontimg.com/api/renderfont4/z8mYw/eyJyIjoiZnMiLCJoIjoxMDgsInciOjEyNTAsImZzIjo4NiwiZmdjIjoiI0U3Q0ZBQSIsImJnYyI6IiMwMDAwMDAiLCJ0IjoxfQ/IEtub3dsZWRnZSA8Lz4gU2tpbGxz/karasha.png" width="250" alt="Knowledge & Skills"/>
-</p>
-
-
-<br>
-
-<!-- Skills -->
-<div style="border: 2px solid #E7CFAA; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
-  <div align="left" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
-      <img src="https://img.shields.io/badge/Burp_Suite-FF6633?style=for-the-badge&logo=burp-suite&logoColor=E7CFAA&color=000000" alt="Burp Suite" />
-      <img src="https://img.shields.io/badge/Metasploit-008C8C?style=for-the-badge&logo=metasploit&logoColor=E7CFAA&color=000000" alt="Metasploit" />
-      <img src="https://img.shields.io/badge/Wireshark-009639?style=for-the-badge&logo=wireshark&logoColor=E7CFAA&color=000000" alt="Wireshark" />
-      <img src="https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=E7CFAA&color=000000" alt="Bash" />
-      <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=E7CFAA&color=000000" alt="Python" />
-      <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=E7CFAA&color=000000" alt="Linux" />
-      <img src="https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=E7CFAA&color=000000" alt="Go" />
-      <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=E7CFAA&color=000000" alt="Git" />
-      <img src="https://img.shields.io/badge/Debian-D70A53?style=for-the-badge&logo=debian&logoColor=E7CFAA&color=000000" alt="Debian" />
-      <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=E7CFAA&color=000000" alt="Docker" />
-      <img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=E7CFAA&color=000000" alt="Flutter" />
-      <img src="https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=E7CFAA&color=000000" alt="C" />
-      <img src="https://img.shields.io/badge/C%2B%2B-F34B7F?style=for-the-badge&logo=c%2B%2B&logoColor=E7CFAA&color=000000" alt="C++" />
-      <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=E7CFAA&color=000000" alt="Java" />
-      <img src="https://img.shields.io/badge/HTML5-5D4B6C?style=for-the-badge&logo=html5&logoColor=E7CFAA&color=000000" alt="HTML5" />
-      <img src="https://img.shields.io/badge/CSS3-2965F1?style=for-the-badge&logo=css3&logoColor=E7CFAA&color=000000" alt="CSS3" />
-      <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=E7CFAA&color=000000" alt="JavaScript" />
-      <img src="https://img.shields.io/badge/BlackArch-0A0A0A?style=for-the-badge&logo=blackarch&logoColor=E7CFAA&color=000000" alt="BlackArch" />
-      <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=E7CFAA&color=000000" alt="MongoDB" />
-      <img src="https://img.shields.io/badge/ExpressJS-000000?style=for-the-badge&logo=express&logoColor=E7CFAA&color=000000" alt="ExpressJS" />
-      <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=E7CFAA&color=000000" alt="React" />
-      <img src="https://img.shields.io/badge/Parrot_OS-2E8E8F?style=for-the-badge&logo=parrot&logoColor=E7CFAA&color=000000" alt="Parrot OS" />
-      <img src="https://img.shields.io/badge/Node.js-8CC84C?style=for-the-badge&logo=node.js&logoColor=E7CFAA&color=000000" alt="NodeJS" />
-      <img src="https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=E7CFAA&color=000000" alt="Ubuntu" />
-      <img src="https://img.shields.io/badge/Kali_Linux-557C94?style=for-the-badge&logo=kali-linux&logoColor=E7CFAA&color=000000" alt="Kali Linux" />
-      <img src="https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=E7CFAA&color=000000" alt="VS Code" />
-  </div>
+<!-- My Repositories -->
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:FF6B6B,25:4ECDC4,50:45B7D1,75:96CEB4,100:FFEAA7&height=80&section=divider&animation=fadeIn&fontAlignY=35"/>
 </div>
 
+<h2 align="center">
+  <img src="https://media.giphy.com/media/iY8CRBdQXODJSCERIr/giphy.gif" width="40">
+  &nbsp;🚀 My Repositories 🚀&nbsp;
+  <img src="https://media.giphy.com/media/iY8CRBdQXODJSCERIr/giphy.gif" width="40">
+</h2>
 
-<br>
-<br>
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:FFEAA7,25:96CEB4,50:45B7D1,75:4ECDC4,100:FF6B6B&height=60&section=divider&animation=fadeIn&fontAlignY=35"/>
+</div>
 
-<!-- Platforms -->
-<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
-  <p align="left">
-    <img src="https://img.shields.io/badge/bugcrowd-E7CFAA?style=for-the-badge&logo=bugcrowd&logoColor=E7CFAA&color=000000" alt="Bugcrowd">
-    <img src="https://img.shields.io/badge/HackerOne-494649?style=for-the-badge&logo=hackerone&logoColor=E7CFAA&color=000000" alt="HackerOne">
-    <img src="https://img.shields.io/badge/Intigriti-2D9CDB?style=for-the-badge&logo=intigriti&logoColor=E7CFAA&color=000000" alt="Intigriti" />
+<div align="center">
+  <h3>🚀 Featured Projects</h3>
+  <p>Here are some of my recent and popular repositories:</p>
+</div>
+
+<!-- REPOSITORY-LIST:START -->
+<div align="center">
+  <table>
+    <tr>
+      <td width="50%">
+        <h3 align="center">🔧 Development Environment</h3>
+        <div align="center">  
+          <a href="https://github.com/haxurn/dotfiles" target="_blank">
+            <img src="https://github-readme-stats.vercel.app/api/pin/?username=haxurn&repo=dotfiles&theme=react&bg_color=1F222E&title_color=FF6B6B&icon_color=4ECDC4&text_color=ffffff&border_color=45B7D1" alt="Dotfiles Repository"/>
+          </a>
+          <br>
+          <p><b>🎯 Personal dotfiles</b> - Customized development environment with security-focused configurations</p>
+        </div>
+      </td>
+      <td width="50%">
+        <h3 align="center">🛡️ Security Arsenal</h3>
+        <div align="center">
+          <a href="https://github.com/haxurn/pentest-toolkit" target="_blank">
+            <img src="https://github-readme-stats.vercel.app/api/pin/?username=haxurn&repo=pentest-toolkit&theme=react&bg_color=1F222E&title_color=96CEB4&icon_color=FFEAA7&text_color=ffffff&border_color=FF6B6B" alt="Pentest Toolkit"/>
+          </a>
+          <br>
+          <p><b>⚔️ Penetration Testing Toolkit</b> - Collection of custom scripts and tools for security assessments</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div align="center">
+  <table>
+    <tr>
+      <td width="50%">
+        <h3 align="center">🌐 Web Development</h3>
+        <div align="center">  
+          <a href="https://github.com/haxurn/haxurn" target="_blank">
+            <img src="https://github-readme-stats.vercel.app/api/pin/?username=haxurn&repo=haxurn&theme=react&bg_color=1F222E&title_color=4ECDC4&icon_color=45B7D1&text_color=ffffff&border_color=96CEB4" alt="Haxurn Profile"/>
+          </a>
+          <br>
+          <p><b>💻 GitHub Profile</b> - My personal GitHub profile with security and development focus</p>
+        </div>
+      </td>
+      <td width="50%">
+        <h3 align="center">🔧 Development Tools</h3>
+        <div align="center">
+          <a href="https://github.com/haxurn/better-middleware" target="_blank">
+            <img src="https://github-readme-stats.vercel.app/api/pin/?username=haxurn&repo=better-middleware&theme=react&bg_color=1F222E&title_color=FFEAA7&icon_color=FF6B6B&text_color=ffffff&border_color=4ECDC4" alt="Better Middleware"/>
+          </a>
+          <br>
+          <p><b>⚡ Better Middleware</b> - Enhanced middleware solution for web development</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+<!-- REPOSITORY-LIST:END -->
+
+<div align="center">
+  <h3>📊 Repository Statistics</h3>
+  <p>
+    <img src="https://img.shields.io/badge/Total%20Repositories-📦-FF6B6B?style=flat-square&labelColor=1e1e1e" alt="Total Repos"/>
+    <img src="https://img.shields.io/badge/Public%20Repos-🌐-4ECDC4?style=flat-square&labelColor=1e1e1e" alt="Public Repos"/>
+    <img src="https://img.shields.io/badge/Private%20Repos-🔒-45B7D1?style=flat-square&labelColor=1e1e1e" alt="Private Repos"/>
+    <img src="https://img.shields.io/badge/Total%20Stars-⭐-96CEB4?style=flat-square&labelColor=1e1e1e" alt="Total Stars"/>
   </p>
 </div>
 
-<br>
-<br>
-
-
-<!-- Projects -->
-<div align="right" style="border: 2px solid #E7CFAA; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
-
-  <p align="right" style="display: flex; align-items: center;">
-    <img src="https://see.fontimg.com/api/renderfont4/z8mYw/eyJyIjoiZnMiLCJoIjoxMDgsInciOjEyNTAsImZzIjo4NiwiZmdjIjoiI0U3Q0ZBQSIsImJnYyI6IiMwMDAwMDAiLCJ0IjoxfQ/cHJvamVjdHM=/karasha.png" width="100" alt="projects">
+<div align="center">
+  <h3>🚀 Explore More</h3>
+  <p>
+    <a href="https://github.com/haxurn?tab=repositories" target="_blank">
+      <img src="https://img.shields.io/badge/View%20All%20Repos-🔍-FF6B6B?style=flat-square&labelColor=1e1e1e" alt="View All Repos"/>
+    </a>
+    <a href="https://github.com/haxurn?tab=stars" target="_blank">
+      <img src="https://img.shields.io/badge/Starred%20Repos-⭐-4ECDC4?style=flat-square&labelColor=1e1e1e" alt="Starred Repos"/>
+    </a>
+    <a href="https://github.com/haxurn?tab=packages" target="_blank">
+      <img src="https://img.shields.io/badge/Packages-📦-45B7D1?style=flat-square&labelColor=1e1e1e" alt="Packages"/>
+    </a>
+    <a href="https://github.com/haxurn?tab=projects" target="_blank">
+      <img src="https://img.shields.io/badge/Projects-📋-96CEB4?style=flat-square&labelColor=1e1e1e" alt="Projects"/>
+    </a>
   </p>
-
-
-<p align="right">
-<a href="https://github.com/haxurn/dotfiles.git"><img src="https://github-readme-stats.vercel.app/api/pin/?username=haxurn&repo=dotfiles&theme=dark&title_color=E7CFAA&icon_color=E7CFAA&text_color=E7CFAA&bg_color=1e1e1e"/></a>
-<a href="https://github.com/haxurn/pentest-toolkit.git"><img src="https://github-readme-stats.vercel.app/api/pin/?username=haxurn&repo=pentest-toolkit&theme=dark&title_color=E7CFAA&icon_color=E7CFAA&text_color=E7CFAA&bg_color=1e1e1e"/></a>
-</p>
-
 </div>
 
 
@@ -140,65 +326,189 @@ me.say_hi()
 <br>
 
 
-<div style="border: 2px solid #E7CFAA; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
-
-<!-- GitHub Status -->
-
-<div style="border: 2px solid #E7CFAA; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
+<!-- GitHub Analytics -->
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:96CEB4,25:45B7D1,50:4ECDC4,75:FF6B6B,100:FFEAA7&height=80&section=divider&animation=fadeIn&fontAlignY=35"/>
+</div>
 
 <h2 align="center">
-  <img src="https://see.fontimg.com/api/renderfont4/z8mYw/eyJyIjoiZnMiLCJoIjoxMDgsInciOjEyNTAsImZzIjo4NiwiZmdjIjoiI0U3Q0ZBQSIsImJnYyI6IiMwMDAwMDAiLCJ0IjoxfQ/R2l0SHViIFN0YXRz/karasha.png" width="200" alt="GitHub Stats title">
+  <img src="https://media.giphy.com/media/W5eoZHPpUx9sapR0eu/giphy.gif" width="35px">
+  &nbsp;📊 GitHub Analytics 📊&nbsp;
+  <img src="https://media.giphy.com/media/W5eoZHPpUx9sapR0eu/giphy.gif" width="35px">
 </h2>
 
-
-<div align="center" style="display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: #0D1117; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-  <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 20px;">
-    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=haxurn&langs_count=6&layout=compact&title_color=E7CFAA&text_color=E7CFAA&bg_color=0D1117&border_color=30363D&hide_border=true&locale=en&custom_title=Top%20Languages" alt="Top Languages" width="355" height="175" style="margin-right: 10px;" />
-    <img src="https://streak-stats.demolab.com?user=haxurn&background=0D1117&ring=E7CFAA&fire=E7CFAA&currStreakNum=E7CFAA&sideNums=E7CFAA&currStreakLabel=E7CFAA&sideLabels=E7CFAA&dates=E7CFAA&stroke=30363D&hide_border=true" alt="GitHub Streak Stats" width="465" height="175" />
-  </div>
-  
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=haxurn&bg_color=0D1117&color=E7CFAA&line=E7CFAA&point=E7CFAA&area_color=E7CFAA&area=true&hide_border=true&custom_title=%20" width="850" height="300" alt="Contribution Constellation"/>
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:45B7D1,25:4ECDC4,50:FF6B6B,75:96CEB4,100:FFEAA7&height=60&section=divider&animation=fadeIn&fontAlignY=35"/>
 </div>
 
+<div align="center">
+  <table>
+    <tr>
+      <td>
+        <img src="https://github-readme-stats.vercel.app/api?username=haxurn&show_icons=true&theme=react&bg_color=0D1117&title_color=FF6B6B&icon_color=4ECDC4&text_color=ffffff&border_color=45B7D1&include_all_commits=true&count_private=true" alt="GitHub Stats" width="400"/>
+      </td>
+      <td>
+        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=haxurn&langs_count=8&layout=compact&theme=react&bg_color=0D1117&title_color=96CEB4&text_color=ffffff&border_color=FFEAA7&hide_border=false" alt="Top Languages" width="400"/>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div align="center">
+  <img src="https://streak-stats.demolab.com?user=haxurn&theme=react&background=0D1117&ring=FF6B6B&fire=4ECDC4&currStreakNum=45B7D1&sideNums=96CEB4&currStreakLabel=FFEAA7&sideLabels=FF6B6B&dates=ffffff&stroke=4ECDC4&border=45B7D1" alt="GitHub Streak Stats" width="800"/>
+</div>
+
+<div align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=haxurn&bg_color=0D1117&color=FF6B6B&line=4ECDC4&point=45B7D1&area_color=96CEB4&area=true&hide_border=true&custom_title=💀%20Hacking%20Activity%20Graph%20💀" width="95%" alt="Contribution Graph"/>
+</div>
+
+<!-- GitHub Trophies -->
+<div align="center">
+  <img src="https://github-profile-trophy.vercel.app/?username=haxurn&theme=juicyfresh&no-frame=true&no-bg=true&margin-w=4&column=8" alt="GitHub Trophies" width="90%"/>
 </div>
 
 
-<div style="border: 2px solid #E7CFAA; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
-
-<!-- Blog Posts -->
-<!-- BLOG-POST-LIST:START -->
-
-<!-- BLOG-POST-LIST:END -->
-
+<!-- Latest Blog Posts -->
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:4ECDC4,25:FF6B6B,50:96CEB4,75:45B7D1,100:FFEAA7&height=80&section=divider&animation=fadeIn&fontAlignY=35"/>
 </div>
 
-<!-- Current Focus
 <h2 align="center">
-  <img src="https://see.fontimg.com/api/renderfont4/z8mYw/eyJyIjoiZnMiLCJoIjo4MSwidyI6MTI1MCwiZnMiOjY1LCJmZ2MiOiIjRTdDRkFBIiwiYmdjIjoiIzAwMDAwMCIsInQiOjF9/Q3VycmVudCBGb2N1cw/karasha.png" width="220" alt="Current Focus">
-</h2> -->
+  <img src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif" width="40">
+  &nbsp;📝 Latest Blog Posts 📝&nbsp;
+  <img src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif" width="40">
+</h2>
 
-<br>
-<br>
-<br>
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:FFEAA7,25:96CEB4,50:45B7D1,75:4ECDC4,100:FF6B6B&height=60&section=divider&animation=fadeIn&fontAlignY=35"/>
+</div>
 
-<div style="border: 2px solid #E7CFAA; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
+<div align="center">
+  
+  <!-- BLOG-POST-LIST:START -->
+  <p>📝 Blog posts will appear here automatically via GitHub Actions</p>
+  <!-- BLOG-POST-LIST:END -->
+  
+  <br>
+  
+  <p>
+       <img src="https://img.shields.io/badge/Security%20Learning-📊-FF6B6B?style=flat-square&labelColor=1e1e1e" alt="Security Learning"/>
+   <img src="https://img.shields.io/badge/Web%20Security-🔍-4ECDC4?style=flat-square&labelColor=1e1e1e" alt="Web Security"/>
+   <img src="https://img.shields.io/badge/Development%20Tips-⛓️-45B7D1?style=flat-square&labelColor=1e1e1e" alt="Development Tips"/>
+   <img src="https://img.shields.io/badge/CTF%20Writeups-💡-96CEB4?style=flat-square&labelColor=1e1e1e" alt="CTF Writeups"/>
+  </p>
+  
+</div>
+
+<!-- Current Focus -->
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:96CEB4,25:45B7D1,50:4ECDC4,75:FF6B6B,100:FFEAA7&height=80&section=divider&animation=fadeIn&fontAlignY=35"/>
+</div>
+
+<h2 align="center">
+  <img src="https://media.giphy.com/media/VgCDAzcKvsR6OM0uWg/giphy.gif" width="55">
+  &nbsp;🎯 Current Focus 🎯&nbsp;
+</h2>
+
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:45B7D1,25:4ECDC4,50:FF6B6B,75:96CEB4,100:FFEAA7&height=60&section=divider&animation=fadeIn&fontAlignY=35"/>
+</div>
+
+<div align="center">
+  <table>
+    <tr>
+      <td align="center" width="25%">
+        <img src="https://media.giphy.com/media/LMt9638dO8dftAjtco/giphy.gif" width="80">
+                 <br><b>🌐 Web Security Learning</b>
+         <br><sub>OWASP Top 10 & Basics</sub>
+      </td>
+      <td align="center" width="25%">
+        <img src="https://media.giphy.com/media/QssGEmpkyEOhBCb7e1/giphy.gif" width="80">
+                 <br><b>🔍 Learning Reverse Engineering</b>
+         <br><sub>Basic binary analysis</sub>
+      </td>
+      <td align="center" width="25%">
+        <img src="https://media.giphy.com/media/WUlplcMpOCEmTGBtBW/giphy.gif" width="80">
+                 <br><b>💀 Learning PWN</b>
+         <br><sub>Basic buffer overflows</sub>
+      </td>
+      <td align="center" width="25%">
+        <img src="https://media.giphy.com/media/26tn33aiTi1jkl6H6/giphy.gif" width="80">
+                 <br><b>🚩 CTF Practice</b>
+         <br><sub>Learning Capture The Flag</sub>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" width="33%">
+        <img src="https://media.giphy.com/media/l0HlTy9x8FZo0XO1i/giphy.gif" width="80">
+                 <br><b>🖧 Learning Network Security</b>
+         <br><sub>Basic packet analysis</sub>
+      </td>
+      <td align="center" width="33%">
+        <img src="https://media.giphy.com/media/3o7qDEq2bMbcbPRQ2c/giphy.gif" width="80">
+                 <br><b>🖥️ Learning System Security</b>
+         <br><sub>OS basics & security concepts</sub>
+      </td>
+      <td align="center" width="33%">
+        <img src="https://media.giphy.com/media/26xBwdIuRJiAIqHwA/giphy.gif" width="80">
+                 <br><b>💻 Full Stack Development</b>
+         <br><sub>TypeScript + JavaScript + Modern frameworks</sub>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<!-- Snake Animation -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/github-snake.svg"" />
+  <img alt="github-snake" src="./assets/github-snake.svg" />
+</picture>
 
 <!-- Connect Section -->
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:FF6B6B,25:4ECDC4,50:45B7D1,75:96CEB4,100:FFEAA7&height=80&section=divider&animation=fadeIn&fontAlignY=35"/>
+</div>
+
 <h2 align="center">
-  <img src="https://see.fontimg.com/api/renderfont4/z8mYw/eyJyIjoiZnMiLCJoIjo4MSwidyI6MTI1MCwiZnMiOjY1LCJmZ2MiOiIjRTdDRkFBIiwiYmdjIjoiIzAwMDAwMCIsInQiOjF9/UmVhY2ggb3V0/karasha.png" width="200" alt="Reach Out">
+  <img src="https://media.giphy.com/media/LnQjpWaON8nhr21vNW/giphy.gif" width="65">
+  &nbsp;🤝 Let's Connect 🤝&nbsp;
+  <img src="https://media.giphy.com/media/LnQjpWaON8nhr21vNW/giphy.gif" width="65">
 </h2>
 
-<p align="center">
-  <a href="https://x.com/haxurn"><img src="https://img.shields.io/badge/haxurn-1DA1F2?style=for-the-badge&logo=X&logoColor=E7CFAA&color=000000" alt="Twitter" /></a>
-  <a href="https://www.instagram.com/haxurn" target="_blank"><img src="https://img.shields.io/badge/haxurn-E4405F?style=for-the-badge&logo=instagram&logoColor=E7CFAA&color=000000" alt="Instagram" /></a>
-  <a href="https://www.linkedin.com/in/haxurn"><img src="https://img.shields.io/badge/haxurn-0077B5?style=for-the-badge&logo=linkedin&logoColor=E7CFAA&color=000000" alt="LinkedIn" /></a>
-  <a href="https://t.me/haxurn"><img src="https://img.shields.io/badge/haxurn-12100E?style=for-the-badge&logo=telegram&logoColor=E7CFAA&color=000000" alt="Telegram" /></a>
-</p>
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:FFEAA7,25:96CEB4,50:45B7D1,75:4ECDC4,100:FF6B6B&height=60&section=divider&animation=fadeIn&fontAlignY=35"/>
+</div>
 
-<br>
-<br>
+<div align="center">
+  <a href="https://x.com/haxurn" target="_blank">
+    <img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" alt="Twitter"/>
+  </a>
+  <a href="https://www.instagram.com/haxurn" target="_blank">
+    <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram"/>
+  </a>
+  <a href="https://www.linkedin.com/in/haxurn" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
+  </a>
+  <a href="https://t.me/haxurn" target="_blank">
+    <img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram"/>
+  </a>
+  <a href="mailto:haxurn@protonmail.com" target="_blank">
+    <img src="https://img.shields.io/badge/ProtonMail-8B89CC?style=for-the-badge&logo=protonmail&logoColor=white" alt="Email"/>
+  </a>
+</div>
 
-<!-- Footer -->
-<p align="center">
-  <img src="https://see.fontimg.com/api/renderfont4/z8mYw/eyJyIjoiZnMiLCJoIjo1NCwidyI6MTI1MCwiZnMiOjQzLCJmZ2MiOiIjRTdDRkFBIiwiYmdjIjoiIzAwMDAwMCIsInQiOjF9/SGFja2luZyBpcyBhbiBhcnQsIHNlY3VyaXR5IGlzIGEgbGlmZXN0eWxl/karasha.png" width="400" alt="Hacking is an art, security is a lifestyle">
-</p>
+<div align="center">
+  <br>
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:FF6B6B,25:4ECDC4,50:45B7D1,75:96CEB4,100:FFEAA7&height=120&section=footer&text=💻%20Code%20•%20Learn%20•%20Grow%20💻&fontSize=26&fontColor=000000&animation=fadeIn&fontAlignY=70"/>
+</div>
+
+<div align="center">
+  <img src="https://komarev.com/ghpvc/?username=haxurn&label=Profile%20Views&color=FF6B6B&style=flat" alt="Profile Views"/>
+  <br>
+  <sub>🔥 Learning and growing • ⭐ Star repos that catch your interest!</sub>
+  <br>
+  <br>
+  <!-- Animated Footer Wave -->
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:FFEAA7,25:96CEB4,50:45B7D1,75:4ECDC4,100:FF6B6B&height=40&section=footer&animation=fadeIn&fontAlignY=35"/>
+</div>
