@@ -15,8 +15,14 @@ Focused on building **secure, production-ready systems** with modern web stacks,
 
 ## 🧑‍💻 About Me
 
-I’m a backend-leaning full-stack developer and security researcher, passionate about **system design, authentication, and distributed architectures**.
+I’m a self-taught software developer and cybersecurity researcher from Addis Ababa, Ethiopia.  
+My passion lies in building secure, scalable systems and exploring how technology can be pushed to its limits.  
 
+I love diving deep into **system architecture, authentication, and security challenges**, while experimenting with modern tools like TypeScript, Bun, Hono, and PostgreSQL.  
+
+Beyond coding, I enjoy tackling **CTFs, penetration testing, and reverse engineering**, always looking for ways to sharpen my problem-solving mindset.  
+
+Right now, I’m focused on growing as a developer and researcher — turning curiosity into real-world impact.
 ---
 
 ## 🛠️ Tech Stack
@@ -74,7 +80,8 @@ I’m a backend-leaning full-stack developer and security researcher, passionate
 
 ![Adobe Photoshop](https://img.shields.io/badge/Adobe%20Photoshop-31A8FF?style=for-the-badge&logo=adobephotoshop&logoColor=white)
 ![Adobe Illustrator](https://img.shields.io/badge/Adobe%20Illustrator-FF9A00?style=for-the-badge&logo=adobeillustrator&logoColor=white)
-![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
+![After Effects](https://img.shields.io/badge/After%20Effects-9999FF?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBmaWxsPSIjMDAwMDVCIiBkPSJNMTcuNzA5IDFoNjQuNTgzQzkyLjA4NCAxIDEwMCA4LjkxNyAxMDAgMTguNzA4djYyLjA4NGMwIDkuNzkxLTcuOTE2IDE3LjcwOC0xNy43MDggMTcuNzA4SDE3LjcwOUM3LjkxNyA5OC41IDAgOTAuNTgzIDAgODAuNzkyVjE4LjcwOEMwIDguOTE3IDcuOTE3IDEgMTcuNzEgMSIvPjxwYXRoIGZpbGw9IiM5OUYiIGQ9Ik00MC4xNjcgNTkuMzMzaC0xNS41TDIxLjUgNjkuMTY3YS43My43MyAwIDAgMS0uNzkxLjU4M2gtNy44MzRjLS40NTggMC0uNTgzLS4yNS0uNDU4LS43NWwxMy40MTctMzguNDU4Yy4xMjUtLjQxNy4yNS0uNzkyLjQxNi0xLjI5Mi4xNjctLjg3NS4yNS0xLjc5Mi4yNS0yLjcwOC0uMDQxLS4yMDkuMTI1LS40MTcuMzM0LS40NTloMTAuNzkxYy4yOTIgMCAuNS4xMjUuNTQyLjMzNGwxNS4yMDggNDIuNWMuMTI1LjQ1OCAwIC42NjYtLjQxNi42NjZINDQuMjVjLS4yOTEuMDQyLS41ODMtLjE2Ni0uNjY2LS40NThsLTMuNDE3LTEwem0tMTMuMDgzLTguMjkxaDEwLjU4M2E1OSA1OSAwIDAgMC0uOTU4LTNjLS4zNzUtMS4xMjUtLjc1LTIuMzM0LTEuMTI1LTMuNTg0LS40MTctMS4yOTEtLjc5Mi0yLjU0MS0xLjIwOS0zLjgzM2E5MCA5MCAwIDAgMS0xLjEyNS0zLjcwOGMtLjMzMy0xLjE2Ny0uNjI1LTIuMjUtLjkxNi0zLjI1aC0uMDg0YTUxIDUxIDAgMCAxLTEuNDE2IDUuMzc1Yy0uNjI1IDItMS4yNSA0LjA4My0xLjkxNyA2LjE2Ni0uNTQyIDIuMTI1LTEuMjA4IDQuMDg0LTEuODMzIDUuODM0bTUwLjgzMyA0LjU0MUg2NC43MDljLjE2NiAxLjI5Mi41ODMgMi41ODQgMS4yOTEgMy43MDkuNzUgMS4xMjUgMS43OTIgMiAzLjA0MiAyLjVhMTMgMTMgMCAwIDAgNS4zMzMgMS4wNDFjMS40NTktLjA0MSAyLjkxNy0uMTY2IDQuMzM0LS40NTggMS4yOTEtLjE2NyAyLjU0MS0uNSAzLjcwOC0uOTU4LjIwOC0uMTY3LjMzMy0uMDg0LjMzMy4zMzN2Ni4zNzVjMCAuMTY3LS4wNDEuMzMzLS4wODMuNWExIDEgMCAwIDEtLjI5Mi4yOTJjLTEuMzMzLjU4My0yLjcwOCAxLTQuMTY2IDEuMjVhMjggMjggMCAwIDEtNS45MTcuNWMtMy4xNjcgMC01LjgzMy0uNS04LTEuNDU5LTIuMDQyLS44NzUtMy44MzMtMi4yNS01LjI1LTMuOTU4YTE1LjMgMTUuMyAwIDAgMS0yLjg3NS01LjQ1OGMtLjU4My0xLjk1OS0uODc1LTQtLjg3NS02LjA4NCAwLTIuMjUuMzMzLTQuNDU4IDEuMDQyLTYuNjI1LjY2Ni0yLjA4MyAxLjcwOC00IDMuMTI1LTUuNzA4IDEuMzc1LTEuNjY3IDMuMDgzLTMgNS4wNDEtMy45NThzNC4yOTItMS4yOTIgNi45NTktMS4yOTJjMi4yMDgtLjA0MiA0LjQxNi4zNzUgNi40NTggMS4yOTJhMTEuNSAxMS41IDAgMCAxIDQuMzc1IDMuMzMzYzEuMDgzIDEuNDE3IDEuOTU4IDMgMi41IDQuNzUuNTQyIDEuNjY3Ljc5MiAzLjM3NS43OTIgNS4wODMgMCAxLS4wNDIgMS44NzUtLjA4NCAyLjY2Ny0uMDgzLjc5Mi0uMTI1IDEuMzc1LS4xNjYgMS43NS0uMDQyLjI5Mi0uMjkyLjU0Mi0uNTg0LjU0Mi0uMjUgMC0uNzA4LjA0MS0xLjM3NS4wODMtLjY2Ni4wODMtMS40NTguMTI1LTIuNDE2LjEyNS0uOTU5IDAtMS45NTktLjE2Ny0zLjA0Mi0uMTY3TTY0LjcwOSA0OS41SDczLjVjMS4wODQgMCAxLjg3NSAwIDIuMzc1LS4wNDIuMzM0LS4wNDEuNjY3LS4xMjUuOTU5LS4zMzN2LS40MTdjMC0uNTQxLS4wODQtMS4wNDEtLjI1LTEuNTQxLS43NS0yLjMzNC0yLjk1OS0zLjkxNy01LjQxNy0zLjgzNGE1Ljg3IDUuODcgMCAwIDAtNS41NDIgMy4xNjcgOC42IDguNiAwIDAgMC0uOTE2IDMiLz48L3N2Zz4=&logoColor=white)
+![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBmaWxsPSIjMEFDRjgzIiBkPSJNMzMuMzMzIDEwMEM0Mi41MzMgMTAwIDUwIDkyLjUzMyA1MCA4My4zMzNWNjYuNjY3SDMzLjMzM2MtOS4yIDAtMTYuNjY2IDcuNDY2LTE2LjY2NiAxNi42NjZTMjQuMTMzIDEwMCAzMy4zMzMgMTAwIi8+PHBhdGggZmlsbD0iI0EyNTlGRiIgZD0iTTE2LjY2NyA1MGMwLTkuMiA3LjQ2Ni0xNi42NjcgMTYuNjY2LTE2LjY2N0g1MHYzMy4zMzRIMzMuMzMzYy05LjIgMC0xNi42NjYtNy40NjctMTYuNjY2LTE2LjY2NyIvPjxwYXRoIGZpbGw9IiNGMjRFMUUiIGQ9Ik0xNi42NjcgMTYuNjY3QzE2LjY2NyA3LjQ2NyAyNC4xMzMgMCAzMy4zMzMgMEg1MHYzMy4zMzNIMzMuMzMzYy05LjIgMC0xNi42NjYtNy40NjYtMTYuNjY2LTE2LjY2NiIvPjxwYXRoIGZpbGw9IiNGRjcyNjIiIGQ9Ik01MCAwaDEuNjY3YzkuMiAwIDE2LjY2NiA3LjQ2NyAxNi42NjYgMTYuNjY3cy03LjQ2NiAxNi42NjYtMTYuNjY2IDE2LjY2Nkg1MHoiLz48cGF0aCBmaWxsPSIjMUFCQ0ZFIiBkPSJNODMuMzMzIDUwYzAgOS4yLTcuNDY2IDE2LjY2Ny0xNi42NjYgMTYuNjY3UzUwIDU5LjIgNTAgNTBzNy40NjctMTYuNjY3IDE2LjY2Ny0xNi42NjdTODMuMzMzIDQwLjggODMuMzMzIDUwIi8+PC9zdmc+&logoColor=white)
 
 ### ☁️ DevOps & Infrastructure
 
@@ -133,7 +140,7 @@ I’m a backend-leaning full-stack developer and security researcher, passionate
 
 <div align="center">
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=About.me&logoColor=white)](https://haxurn.dev)
+[![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=About.me&logoColor=white)](https://haxurn.vercel.app)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/samsontesfaye)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/haxurn)
 [![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/haxurn)
@@ -159,8 +166,3 @@ I’m a backend-leaning full-stack developer and security researcher, passionate
   <p><em>Thanks for visiting! Feel free to explore my repositories and don't forget to ⭐ if you find something interesting!</em></p>
 </div>
 
----
-
-<div align="center">
-  <sub>💖 Made with passion by <a href="https://github.com/haxurn">Haxurn</a></sub>
-</div>
