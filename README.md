@@ -1,5 +1,5 @@
 <div align="center" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; margin-bottom: 20px;">
-  <a href="https://app.daily.dev/haxurn"><img src="https://api.daily.dev/devcards/v2/8kW8EiahEzSlB28i4ywaX.png?type=wide&r=urg" width="652" alt="Haxurn's Dev Card"/></a>
+  <a href="https://app.daily.dev/haxurn"><img src="https://api.daily.dev/devcards/v2/8kW8EiahEzSlB28i4ywaX.png?type=wide&r=urg" width="400" alt="Haxurn's Dev Card"/></a>
   <a href="https://gitroll.io/profile/uA25DjGcB3yXKQF6bW7k2fJLebKj1" target="_blank">
     <img src="https://gitroll.io/api/badges/profiles/v1/uA25DjGcB3yXKQF6bW7k2fJLebKj1?theme=midnight" width="400" alt="GitRoll Profile Badge"/>
   </a>
