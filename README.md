@@ -123,7 +123,7 @@ Right now, I’m focused on growing as a developer and researcher, turning curio
 <img src="https://github-readme-activity-graph.vercel.app/graph?username=haxurn&theme=github-compact&hide_border=true&area=true" alt="Activity Graph" width="100%"/>
 
 ### ⌛ Coding Time
-[![wakatime](https://wakatime.com/badge/user/2b756afe-0bc9-45e4-a011-c71cfc529ed1.svg)](https://wakatime.com/@2b756afe-0bc9-45e4-a011-c71cfc529ed1)
+[![wakatime](https://wakatime.com/badge/user/018b34bc-2a6a-4390-9654-bc4ac3d1cb8e.svg)](https://wakatime.com/@018b34bc-2a6a-4390-9654-bc4ac3d1cb8e)
 
 </div>
 
