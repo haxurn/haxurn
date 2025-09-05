@@ -22,7 +22,7 @@ I love diving deep into **system architecture, authentication, and security chal
 
 Beyond coding, I enjoy tackling **CTFs, penetration testing, and reverse engineering**, always looking for ways to sharpen my problem-solving mindset.  
 
-Right now, I’m focused on growing as a developer and researcher — turning curiosity into real-world impact.
+Right now, I’m focused on growing as a developer and researcher, turning curiosity into real-world impact.
 
 ---
 
