@@ -1,25 +1,14 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { test } from 'node:test';
-import { encodeApng, encodePng } from '../lib/apng.mjs';
-import { renderField } from '../lib/field.mjs';
+import { levelFills, mixHex, monthMarkers, renderCalendarGrid } from '../lib/calendar.mjs';
 import { parseContributions } from '../lib/github.mjs';
+import { iconMarkup } from '../lib/icons.mjs';
 import { buildReadme, escapeHtml } from '../lib/readme.mjs';
 import { createTypesetter } from '../lib/text.mjs';
 
-const PNG_SIGNATURE = Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]);
-const FULL_YEAR_WEEKS = Array.from({ length: 53 }, (_, week) =>
-  Array.from({ length: 7 }, (_, day) => (week + day) % 5));
-
-function chunkTypes(png) {
-  const types = [];
-  for (let offset = 8; offset < png.length;) {
-    const length = png.readUInt32BE(offset);
-    types.push(png.toString('latin1', offset + 4, offset + 8));
-    offset += 12 + length;
-  }
-  return types;
-}
+const FONT_URL = new URL('../../fonts/JetBrainsMono-Medium.ttf', import.meta.url);
+const THEME = { bg: '#000000', accent: '#ffffff', surface2: '#111111' };
 
 test('parseContributions groups days into Sunday-first weeks and reads the total', () => {
   const html = `
@@ -31,6 +20,7 @@ test('parseContributions groups days into Sunday-first weeks and reads the total
   const result = parseContributions(html);
 
   assert.equal(result.total, 1234);
+  assert.equal(result.start, '2026-11-01');
   assert.deepEqual(result.weeks, [[1, 3, 0, 0, 0, 0, 0], [4, 0, 0, 0, 0, 0, 0]]);
 });
 
@@ -38,47 +28,48 @@ test('parseContributions throws when GitHub markup carries no calendar', () => {
   assert.throws(() => parseContributions('<html>rate limited</html>'), /no contribution days/);
 });
 
-test('renderField stays inside the palette and is deterministic', () => {
-  const options = { cols: 110, rows: 25, paletteSize: 5, phase: 0.3 };
-
-  const first = renderField(FULL_YEAR_WEEKS, options);
-  const second = renderField(FULL_YEAR_WEEKS, options);
-
-  assert.equal(first.length, 110 * 25);
-  assert.ok(first.every((index) => index >= 0 && index < 5));
-  assert.deepEqual(first, second);
+test('mixHex blends channels and levelFills steps from empty to full accent', () => {
+  assert.equal(mixHex('#000000', '#ffffff', 0.5), '#808080');
+  assert.deepEqual(levelFills(THEME), ['#111111', '#404040', '#808080', '#bfbfbf', '#ffffff']);
 });
 
-test('renderField loops seamlessly between phase 0 and phase 1', () => {
-  const options = { cols: 60, rows: 14, paletteSize: 5 };
+test('monthMarkers labels each month once and skips a partial first month', () => {
+  const markers = monthMarkers('2025-10-26', 53);
 
-  assert.deepEqual(
-    renderField(FULL_YEAR_WEEKS, { ...options, phase: 0 }),
-    renderField(FULL_YEAR_WEEKS, { ...options, phase: 1 }),
-  );
+  assert.equal(markers[0].month, 'Nov');
+  assert.equal(new Set(markers.map(({ month }) => month)).size, markers.length);
+  assert.ok(markers.every((marker, index) => !index || marker.week - markers[index - 1].week >= 3));
 });
 
-test('encodePng writes a static indexed PNG', () => {
-  const png = encodePng({ width: 2, height: 2, palette: ['#000000', '#ffffff'], pixels: new Uint8Array([0, 1, 1, 0]) });
-
-  assert.deepEqual(png.subarray(0, 8), PNG_SIGNATURE);
-  assert.deepEqual(chunkTypes(png), ['IHDR', 'PLTE', 'IDAT', 'IEND']);
+test('monthMarkers rejects a missing start date instead of drawing "Invalid Date"', () => {
+  assert.throws(() => monthMarkers(undefined, 53), /Invalid calendar start date/);
 });
 
-test('encodeApng declares every frame and orders chunks for decoders', () => {
-  const frames = [new Uint8Array([0, 1, 1, 0]), new Uint8Array([1, 0, 0, 1]), new Uint8Array([1, 1, 0, 0])];
+test('renderCalendarGrid draws one cell per day with the fill for its level', () => {
+  const weeks = [[0, 1, 2, 3, 4, 0, 0], [4, 0, 0, 0, 0, 0, 0]];
 
-  const png = encodeApng({ width: 2, height: 2, palette: ['#000000', '#ffffff'], frames, fps: 12 });
+  const { markup } = renderCalendarGrid({
+    weeks, start: '2026-01-04', theme: THEME, caption: () => '', x: 0, y: 0, width: 100,
+  });
 
-  assert.deepEqual(chunkTypes(png), [
-    'IHDR', 'PLTE', 'acTL', 'fcTL', 'IDAT', 'fcTL', 'fdAT', 'fcTL', 'fdAT', 'IEND',
-  ]);
-  const actlOffset = png.indexOf('acTL', 0, 'latin1') + 4;
-  assert.equal(png.readUInt32BE(actlOffset), 3);
+  assert.equal(markup.match(/<rect /g).length, 14);
+  assert.equal(markup.match(/fill="#ffffff"/g).length, 2);
+  assert.equal(markup.match(/class="w"/g).length, 2);
+});
+
+test('iconMarkup draws stroked Lucide, filled Simple Icons, and local marks', () => {
+  assert.match(iconMarkup('lucide:star', 0, 0, 24, '#123456'), /fill="none" stroke="#123456"/);
+  assert.match(iconMarkup('si:x', 0, 0, 24, '#123456'), /^<g [^>]*fill="#123456"/);
+  assert.match(iconMarkup('local:linkedin', 0, 0, 24, '#123456'), /color="#123456"/);
+});
+
+test('iconMarkup fails loudly for an unknown icon', () => {
+  assert.throws(() => iconMarkup('lucide:not-a-real-icon', 0, 0, 24, '#000000'), /ENOENT/);
+  assert.throws(() => iconMarkup('nope:star', 0, 0, 24, '#000000'), /Unknown icon set/);
 });
 
 test('typesetter measures, outlines, and ellipsizes text to fit', async () => {
-  const type = createTypesetter(await readFile(new URL('../../fonts/JetBrainsMono-Medium.ttf', import.meta.url)));
+  const type = createTypesetter(await readFile(FONT_URL));
   const long = 'one two three four five six seven eight nine ten';
 
   const lines = type.wrap(long, 12, 100, 2);
@@ -90,7 +81,7 @@ test('typesetter measures, outlines, and ellipsizes text to fit', async () => {
 });
 
 test('typesetter rejects characters the font cannot draw instead of rendering tofu', async () => {
-  const type = createTypesetter(await readFile(new URL('../../fonts/JetBrainsMono-Medium.ttf', import.meta.url)));
+  const type = createTypesetter(await readFile(FONT_URL));
 
   assert.throws(() => type.path('★ 2', 0, 0, 12), /no glyph for "★"/);
 });
@@ -104,6 +95,7 @@ test('buildReadme emits themed pictures with a light and dark source per panel',
     version: 'abc',
     header: { name: 'header', alt: 'Samson <T>' },
     cards: [{ name: 'card-01', alt: 'Axova', url: 'https://www.axova.io' }],
+    stack: { name: 'stack', alt: 'Stack', url: 'https://www.haxurn.space/#stack' },
     ledger: { name: 'repos', alt: 'Repos', url: 'https://github.com/haxurn?tab=repositories' },
     links: [{ name: 'link-01', alt: 'Website', url: 'https://www.haxurn.space' }],
   });
@@ -112,4 +104,5 @@ test('buildReadme emits themed pictures with a light and dark source per panel',
   assert.match(readme, /media="\(prefers-color-scheme: light\)" srcset="\.\/profile\/generated\/header-light\.svg\?v=abc"/);
   assert.match(readme, /alt="Samson &lt;T&gt;"/);
   assert.match(readme, /<a href="https:\/\/www\.axova\.io"><picture>/);
+  assert.match(readme, /stack-dark\.svg/);
 });

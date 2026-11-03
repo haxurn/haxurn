@@ -1,66 +1,56 @@
 import { createHash } from 'node:crypto';
 import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
-import { encodeApng, encodePng } from './lib/apng.mjs';
-import { renderField } from './lib/field.mjs';
 import { loadProfileData } from './lib/github.mjs';
-import { FIELD_PIXEL_SIZE, renderCard, renderHeader, renderLedger, renderLink } from './lib/panels.mjs';
+import { renderCard, renderHeader, renderLedger, renderLink, renderStack } from './lib/panels.mjs';
 import { buildReadme } from './lib/readme.mjs';
 import { createTypesetter } from './lib/text.mjs';
 
-const FIELD_FRAMES = 48;
-const FIELD_FPS = 12;
-const STILL_PHASE = 0.72;
 const VERSION_LENGTH = 10;
-const FIRST_CARD_INDEX = 1;
 
 const root = new URL('../', import.meta.url);
 const fromRoot = (relative) => new URL(relative, root);
 const OUT_DIR = fromRoot('profile/generated/');
+const numbered = (prefix, index) => `${prefix}-${String(index + 1).padStart(2, '0')}`;
 
-function renderFieldImages(weeks, palette) {
-  const { cols, rows } = FIELD_PIXEL_SIZE;
-  const frame = (phase) => renderField(weeks, { cols, rows, paletteSize: palette.length, phase });
-  const frames = Array.from({ length: FIELD_FRAMES }, (_, index) => frame(index / FIELD_FRAMES));
-  return {
-    still: encodePng({ width: cols, height: rows, palette, pixels: frame(STILL_PHASE) }).toString('base64'),
-    animated: encodeApng({ width: cols, height: rows, palette, frames, fps: FIELD_FPS }).toString('base64'),
-  };
-}
-
-function renderTheme(theme, shared) {
-  const { config, data, type, artwork, images } = shared;
+function renderTheme(theme, { config, data, type, artwork, images }) {
   const context = { type, theme, artwork };
-  const field = renderFieldImages(data.contributions.weeks, theme.field);
   return {
-    header: renderHeader({ ...context, person: config.person, data, field }),
+    header: renderHeader({ ...context, person: config.person, data }),
     ...Object.fromEntries(config.featured.map((project, index) => [
-      `card-0${index + FIRST_CARD_INDEX}`,
-      renderCard({ ...context, project, index: `0${index + FIRST_CARD_INDEX}`, imageData: images[index] }),
+      numbered('card', index),
+      renderCard({ ...context, project, imageData: images[index] }),
     ])),
-    repos: renderLedger({ type, theme, repos: config.repos, data }),
-    ...Object.fromEntries(config.links.map(({ label }, index) => [
-      `link-0${index + FIRST_CARD_INDEX}`,
-      renderLink({ type, theme, label }),
+    stack: renderStack({ type, theme, stack: config.stack }),
+    repos: renderLedger({ type, theme, repos: config.repos, data, languageIcons: config.languageIcons }),
+    ...Object.fromEntries(config.links.map(({ label, icon }, index) => [
+      numbered('link', index),
+      renderLink({ type, theme, label, icon }),
     ])),
   };
 }
 
 function readmePanels(config, version) {
-  const { person, featured, username, links } = config;
+  const { person, featured, username, links, stack, repos } = config;
+  const disciplines = person.disciplines.map(({ label }) => label).join(', ');
   return {
     version,
-    header: { name: 'header', alt: `${person.name} (${person.alias}): ${person.role}. ${person.focus}. ${person.location}.` },
+    header: { name: 'header', alt: `${person.name} (${person.alias}): ${person.role}. ${person.focus}. ${person.location}. ${disciplines}.` },
     cards: featured.map((project, index) => ({
-      name: `card-0${index + FIRST_CARD_INDEX}`,
+      name: numbered('card', index),
       alt: `${project.title}: ${project.summary}`,
       url: project.url,
     })),
+    stack: {
+      name: 'stack',
+      alt: `Stack: ${stack.map(({ label }) => label).join(', ')}`,
+      url: 'https://www.haxurn.space/#stack',
+    },
     ledger: {
       name: 'repos',
-      alt: `Selected repositories: ${config.repos.map(({ name }) => name).join(', ')}`,
+      alt: `Selected repositories: ${repos.map(({ name }) => name).join(', ')}`,
       url: `https://github.com/${username}?tab=repositories`,
     },
-    links: links.map(({ label, url }, index) => ({ name: `link-0${index + FIRST_CARD_INDEX}`, alt: label, url })),
+    links: links.map(({ label, url }, index) => ({ name: numbered('link', index), alt: label, url })),
   };
 }
 

@@ -31,7 +31,8 @@ export function parseContributions(html) {
   }
 
   const total = html.match(/([\d,]+)\s+contributions?\s+in the last year/)?.[1];
-  return { total: total ? Number(total.replaceAll(',', '')) : null, weeks };
+  const startDate = new Date(start).toISOString().slice(0, 10);
+  return { total: total ? Number(total.replaceAll(',', '')) : null, start: startDate, weeks };
 }
 
 async function fetchOk(url, headers) {
