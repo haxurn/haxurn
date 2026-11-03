@@ -3,6 +3,7 @@
   "person": {
     "name": "Samson Tesfaye",
     "alias": "Haxurn",
+    "status": "Building",
     "role": "Tech entrepreneur · trader · builder",
     "location": "Addis Ababa, Ethiopia",
     "disciplines": [
@@ -79,7 +80,8 @@
       "fgSubtle": "#a4a4a4",
       "accent": "#49de78",
       "accentFg": "#0f1a13",
-      "accentInk": "#49de78"
+      "accentInk": "#49de78",
+      "aurora": ["#121212", "#343434", "#5a5a5a", "#17693a", "#2bab58", "#49de78"]
     },
     "light": {
       "bg": "#faf3e3",
@@ -90,7 +92,8 @@
       "fgSubtle": "#4c473f",
       "accent": "#137738",
       "accentFg": "#faf3e3",
-      "accentInk": "#0d632d"
+      "accentInk": "#0d632d",
+      "aurora": ["#f4ead7", "#ddd0b8", "#bfb096", "#4f9a68", "#1f7a40", "#0d632d"]
     }
   }
 }

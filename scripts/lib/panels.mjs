@@ -10,6 +10,8 @@ const STRIP_HEIGHT = 44;
 const MARGIN = 28;
 const CAPTION = { size: 10.5, tracking: 0.12 };
 
+const AURORA_HEIGHT = 208;
+const AURORA_PIXEL = 4;
 const IDENTITY_HEIGHT = 204;
 const DISCIPLINE_HEIGHT = 52;
 const CALENDAR_TOP = 44;
@@ -23,6 +25,10 @@ const CARD_FOOTER_HEIGHT = 60;
 const STACK_ROW_HEIGHT = 58;
 const LEDGER_ROW_HEIGHT = 48;
 const LEDGER_COLUMNS = { icon: MARGIN, name: 56, summary: 268, language: 680, stars: WIDTH - MARGIN };
+
+const PENDING_SECONDS = 1.2;
+
+export const AURORA_GRID = { cols: WIDTH / AURORA_PIXEL, rows: AURORA_HEIGHT / AURORA_PIXEL };
 
 const formatCount = (value) => (value === null || value === undefined ? '—' : value.toLocaleString('en-US'));
 
@@ -69,9 +75,36 @@ function stamp(canvas, theme, label, x, y) {
     + '</g>';
 }
 
+/** Small 2x2 mark whose squares blink in turn, like work in progress. */
+function pendingMark(theme, x, y) {
+  const square = 4;
+  const gap = 2;
+  return [[0, 0], [1, 0], [1, 1], [0, 1]].map(([column, row], index) =>
+    `<rect class="pending" style="animation-delay:${(index * PENDING_SECONDS) / 4}s" x="${x + column * (square + gap)}" y="${y + row * (square + gap)}" width="${square}" height="${square}" fill="${theme.accent}"/>`).join('');
+}
+
+function auroraHead(canvas, type, theme, person, username) {
+  const handleWidth = type.width(username, 13);
+  return [
+    `<rect width="${WIDTH}" height="${STRIP_HEIGHT}" fill="${theme.surface2}"/>`,
+    canvas.text(username, MARGIN, 27, 13, theme.fg),
+    pendingMark(theme, MARGIN + handleWidth + 16, 17),
+    canvas.caption(person.status, MARGIN + handleWidth + 38, 26, theme.fg),
+    canvas.text(`github.com/${username}`, WIDTH - MARGIN, 27, 12, theme.fgSubtle, { anchor: 'end' }),
+    canvas.hline(STRIP_HEIGHT),
+  ].join('');
+}
+
+function auroraBanner(aurora) {
+  const attributes = `width="${WIDTH}" height="${AURORA_HEIGHT}" preserveAspectRatio="none" style="image-rendering:pixelated"`;
+  return `<g transform="translate(0 ${STRIP_HEIGHT})">`
+    + `<image class="still" ${attributes} href="data:image/png;base64,${aurora.still}"/>`
+    + `<image class="live" ${attributes} href="data:image/png;base64,${aurora.animated}"/></g>`;
+}
+
 function identityBlock(canvas, theme, artwork, person, top) {
   return [
-    canvas.caption(person.alias, MARGIN, top + 36, theme.accentInk),
+    canvas.caption(`${person.alias} · ${person.location}`, MARGIN, top + 36, theme.accentInk),
     stamp(canvas, theme, 'On file', STATS_X - 112, top + 20),
     heading(artwork, person.name, MARGIN - 2, top + 102, 68, theme.fg),
     canvas.text(person.role, MARGIN, top + 138, 15, theme.fgMuted),
@@ -110,9 +143,9 @@ function disciplineStrip(canvas, theme, disciplines, top) {
   }).join('');
 }
 
-export function renderHeader({ type, theme, artwork, person, data }) {
+export function renderHeader({ type, theme, artwork, person, username, data, aurora }) {
   const canvas = createCanvas(type, theme);
-  const identityTop = STRIP_HEIGHT;
+  const identityTop = STRIP_HEIGHT + AURORA_HEIGHT;
   const disciplineTop = identityTop + IDENTITY_HEIGHT;
   const calendarTop = disciplineTop + DISCIPLINE_HEIGHT;
   const { weeks, start, total } = data.contributions;
@@ -129,7 +162,9 @@ export function renderHeader({ type, theme, artwork, person, data }) {
   ];
 
   const body = [
-    canvas.panelHead('lucide:folder-open', 'Personnel file', person.location, WIDTH),
+    auroraHead(canvas, type, theme, person, username),
+    auroraBanner(aurora),
+    canvas.hline(identityTop),
     identityBlock(canvas, theme, artwork, person, identityTop),
     statsBlock(canvas, theme, stats, identityTop),
     canvas.hline(disciplineTop),
@@ -141,7 +176,8 @@ export function renderHeader({ type, theme, artwork, person, data }) {
   ].join('');
 
   const style = `${CALENDAR_STYLE}.pulse{animation:pulse 1.8s ease-in-out infinite}@keyframes pulse{50%{opacity:.3}}`
-    + '@media (prefers-reduced-motion:reduce){.pulse{animation:none}}';
+    + `.pending{animation:pending ${PENDING_SECONDS}s steps(1) infinite}@keyframes pending{0%{opacity:1}25%,100%{opacity:.3}}`
+    + '@media (prefers-reduced-motion:reduce){.pulse,.pending{animation:none}.live{display:none}}';
   return svg(WIDTH, height, `${person.name}, ${person.role}`, theme, body, style);
 }
 

@@ -1,6 +1,8 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { test } from 'node:test';
+import { encodeApng, encodePng } from '../lib/apng.mjs';
+import { renderAurora } from '../lib/aurora.mjs';
 import { levelFills, mixHex, monthMarkers, renderCalendarGrid } from '../lib/calendar.mjs';
 import { parseContributions } from '../lib/github.mjs';
 import { iconMarkup } from '../lib/icons.mjs';
@@ -9,6 +11,15 @@ import { createTypesetter } from '../lib/text.mjs';
 
 const FONT_URL = new URL('../../fonts/JetBrainsMono-Medium.ttf', import.meta.url);
 const THEME = { bg: '#000000', accent: '#ffffff', surface2: '#111111' };
+
+function chunkTypes(png) {
+  const types = [];
+  for (let offset = 8; offset < png.length;) {
+    types.push(png.toString('latin1', offset + 4, offset + 8));
+    offset += 12 + png.readUInt32BE(offset);
+  }
+  return types;
+}
 
 test('parseContributions groups days into Sunday-first weeks and reads the total', () => {
   const html = `
@@ -66,6 +77,61 @@ test('iconMarkup draws stroked Lucide, filled Simple Icons, and local marks', ()
 test('iconMarkup fails loudly for an unknown icon', () => {
   assert.throws(() => iconMarkup('lucide:not-a-real-icon', 0, 0, 24, '#000000'), /ENOENT/);
   assert.throws(() => iconMarkup('nope:star', 0, 0, 24, '#000000'), /Unknown icon set/);
+});
+
+test('renderAurora stays inside the palette and is deterministic', () => {
+  const options = { cols: 110, rows: 26, paletteSize: 6, phase: 0.3 };
+
+  const first = renderAurora(options);
+
+  assert.equal(first.length, 110 * 26);
+  assert.ok(first.every((index) => index < 6));
+  assert.deepEqual(first, renderAurora(options));
+});
+
+test('renderAurora loops seamlessly and moves between frames', () => {
+  const options = { cols: 60, rows: 14, paletteSize: 6 };
+  const start = renderAurora({ ...options, phase: 0 });
+
+  assert.deepEqual(start, renderAurora({ ...options, phase: 1 }));
+  assert.notDeepEqual(start, renderAurora({ ...options, phase: 0.5 }));
+});
+
+test('renderAurora draws a band with dark sky above and below and a bright core', () => {
+  const cols = 220;
+  const rows = 52;
+  const pixels = renderAurora({ cols, rows, paletteSize: 6, phase: 0 });
+  const rowPeak = (row) => Math.max(...pixels.subarray(row * cols, (row + 1) * cols));
+
+  assert.equal(rowPeak(rows - 1), 0);
+  assert.ok(rowPeak(0) <= 1);
+  assert.equal(Math.max(...pixels), 5);
+});
+
+test('renderAurora keeps a bright core in every frame of the loop', () => {
+  const cols = 220;
+  const rows = 52;
+  const counts = Array.from({ length: 24 }, (_, index) =>
+    renderAurora({ cols, rows, paletteSize: 6, phase: index / 24 }).filter((value) => value >= 4).length);
+
+  assert.ok(Math.min(...counts) > 500, `dimmest frame has ${Math.min(...counts)} bright cells`);
+});
+
+test('encodePng writes a static indexed PNG', () => {
+  const png = encodePng({ width: 2, height: 2, palette: ['#000000', '#ffffff'], pixels: new Uint8Array([0, 1, 1, 0]) });
+
+  assert.deepEqual(chunkTypes(png), ['IHDR', 'PLTE', 'IDAT', 'IEND']);
+});
+
+test('encodeApng declares every frame and orders chunks for decoders', () => {
+  const frames = [new Uint8Array([0, 1, 1, 0]), new Uint8Array([1, 0, 0, 1]), new Uint8Array([1, 1, 0, 0])];
+
+  const png = encodeApng({ width: 2, height: 2, palette: ['#000000', '#ffffff'], frames, fps: 12 });
+
+  assert.deepEqual(chunkTypes(png), [
+    'IHDR', 'PLTE', 'acTL', 'fcTL', 'IDAT', 'fcTL', 'fdAT', 'fcTL', 'fdAT', 'IEND',
+  ]);
+  assert.equal(png.readUInt32BE(png.indexOf('acTL', 0, 'latin1') + 4), 3);
 });
 
 test('typesetter measures, outlines, and ellipsizes text to fit', async () => {

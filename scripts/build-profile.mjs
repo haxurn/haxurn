@@ -1,21 +1,36 @@
 import { createHash } from 'node:crypto';
 import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
+import { encodeApng, encodePng } from './lib/apng.mjs';
+import { renderAurora } from './lib/aurora.mjs';
 import { loadProfileData } from './lib/github.mjs';
-import { renderCard, renderHeader, renderLedger, renderLink, renderStack } from './lib/panels.mjs';
+import { AURORA_GRID, renderCard, renderHeader, renderLedger, renderLink, renderStack } from './lib/panels.mjs';
 import { buildReadme } from './lib/readme.mjs';
 import { createTypesetter } from './lib/text.mjs';
 
 const VERSION_LENGTH = 10;
+const AURORA_FRAMES = 72;
+const AURORA_FPS = 12;
 
 const root = new URL('../', import.meta.url);
 const fromRoot = (relative) => new URL(relative, root);
 const OUT_DIR = fromRoot('profile/generated/');
 const numbered = (prefix, index) => `${prefix}-${String(index + 1).padStart(2, '0')}`;
 
+function renderAuroraImages(palette) {
+  const { cols, rows } = AURORA_GRID;
+  const frame = (phase) => renderAurora({ cols, rows, paletteSize: palette.length, phase });
+  const frames = Array.from({ length: AURORA_FRAMES }, (_, index) => frame(index / AURORA_FRAMES));
+  return {
+    still: encodePng({ width: cols, height: rows, palette, pixels: frames[0] }).toString('base64'),
+    animated: encodeApng({ width: cols, height: rows, palette, frames, fps: AURORA_FPS }).toString('base64'),
+  };
+}
+
 function renderTheme(theme, { config, data, type, artwork, images }) {
   const context = { type, theme, artwork };
+  const aurora = renderAuroraImages(theme.aurora);
   return {
-    header: renderHeader({ ...context, person: config.person, data }),
+    header: renderHeader({ ...context, person: config.person, username: config.username, data, aurora }),
     ...Object.fromEntries(config.featured.map((project, index) => [
       numbered('card', index),
       renderCard({ ...context, project, imageData: images[index] }),
