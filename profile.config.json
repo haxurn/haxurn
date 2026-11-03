@@ -1,0 +1,71 @@
+{
+  "username": "haxurn",
+  "person": {
+    "name": "Samson Tesfaye",
+    "alias": "Haxurn",
+    "role": "Tech entrepreneur · trader · builder",
+    "location": "Addis Ababa, Ethiopia",
+    "disciplines": ["Ventures", "Forex trading", "Software", "Security", "Design", "Music"],
+    "focus": "Co-founder & CTO, Solvix Labs PLC · trading FX since 2024",
+    "fieldCaption": "Every green cell is a small win"
+  },
+  "featured": [
+    {
+      "title": "Axova",
+      "summary": "A unified commerce platform for Ethiopia: online storefront, point of sale, marketplace, and delivery.",
+      "role": "Co-founder & CTO",
+      "meta": "Ongoing · 2025",
+      "cta": "Visit site",
+      "url": "https://www.axova.io",
+      "image": "profile/assets/axova.jpg"
+    },
+    {
+      "title": "Geez Security",
+      "summary": "Bilingual cybersecurity academy for Ethiopia with certification tracks and course modules.",
+      "role": "Design + build",
+      "meta": "Shipped · 2026",
+      "cta": "Visit site",
+      "url": "https://geezsec.vercel.app",
+      "image": "profile/assets/geezsec.jpg"
+    }
+  ],
+  "repos": [
+    { "name": "better-waitlist", "summary": "Waitlist plugin for Better Auth, published on npm." },
+    { "name": "better-middleware", "summary": "Framework-agnostic auth middleware for Better Auth." },
+    { "name": "haxurn-core", "summary": "Monorepo foundation for cybersecurity tools." },
+    { "name": "cybershield-2026-harden", "summary": "CIS hardening scripts scored by Wazuh SCA." },
+    { "name": "dotfiles", "summary": "tmux, nvim, and zsh configuration." }
+  ],
+  "links": [
+    { "label": "Website", "url": "https://www.haxurn.space" },
+    { "label": "LinkedIn", "url": "https://www.linkedin.com/in/samsontesfaye" },
+    { "label": "X", "url": "https://x.com/haxurn" },
+    { "label": "Hack The Box", "url": "https://app.hackthebox.com/users/1398172" }
+  ],
+  "themes": {
+    "dark": {
+      "bg": "#090909",
+      "surface2": "#1e1e1e",
+      "border": "#383838",
+      "fg": "#f7f7f7",
+      "fgMuted": "#c7c7c7",
+      "fgSubtle": "#a4a4a4",
+      "accent": "#49de78",
+      "accentFg": "#090909",
+      "accentInk": "#49de78",
+      "field": ["#090909", "#0c2a15", "#14532b", "#20c45f", "#49de78"]
+    },
+    "light": {
+      "bg": "#faf3e3",
+      "surface2": "#e8ddc7",
+      "border": "#d0c2ab",
+      "fg": "#191610",
+      "fgMuted": "#312d27",
+      "fgSubtle": "#4c473f",
+      "accent": "#137738",
+      "accentFg": "#faf3e3",
+      "accentInk": "#0d632d",
+      "field": ["#faf3e3", "#d9e3c3", "#8fb98f", "#137738", "#0d632d"]
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "haxurn-profile-readme",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-profile.mjs",
+    "outline": "node scripts/outline-artwork.mjs",
+    "test": "node --test scripts/test/"
+  },
+  "packageManager": "pnpm@12.5.1",
+  "engines": { "node": ">=22" },
+  "devDependencies": {
+    "opentype.js": "1.3.4"
+  }
+}

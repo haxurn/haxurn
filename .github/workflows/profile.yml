@@ -1,0 +1,43 @@
+name: Refresh profile
+
+on:
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - profile.config.json
+      - profile/artwork.json
+      - profile/assets/**
+      - scripts/**
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm test
+      - run: pnpm build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit changed panels
+        run: |
+          git add README.md profile
+          if git diff --cached --quiet; then
+            echo "No profile changes"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: refresh profile panels"
+          git push
