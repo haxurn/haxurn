@@ -8,7 +8,6 @@ on:
     branches: [main]
     paths:
       - profile.config.json
-      - profile/artwork.json
       - profile/assets/**
       - scripts/**
 

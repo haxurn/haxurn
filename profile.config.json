@@ -3,97 +3,268 @@
   "person": {
     "name": "Samson Tesfaye",
     "alias": "Haxurn",
-    "status": "Building",
-    "role": "Tech entrepreneur · trader · builder",
-    "location": "Addis Ababa, Ethiopia",
-    "disciplines": [
-      { "label": "Ventures", "icon": "lucide:rocket" },
-      { "label": "Forex", "icon": "lucide:candlestick-chart" },
-      { "label": "Software", "icon": "lucide:code-xml" },
-      { "label": "Security", "icon": "lucide:shield-check" },
-      { "label": "Design", "icon": "lucide:pen-tool" },
-      { "label": "Music", "icon": "lucide:music" }
-    ],
-    "focus": "Co-founder & CTO, Solvix Labs PLC · trading FX since 2024",
-    "fieldCaption": "Every green cell is a small win"
+    "prompt": "haxurn@addis",
+    "location": "Addis Ababa, Ethiopia"
   },
   "featured": [
     {
       "title": "Axova",
-      "icon": "lucide:store",
       "summary": "Unified commerce for Ethiopia: storefront, point of sale, marketplace, and delivery.",
       "role": "Co-founder & CTO",
-      "meta": "Ongoing · 2025",
       "cta": "Visit site",
       "url": "https://www.axova.io",
       "image": "profile/assets/axova.jpg"
     },
     {
       "title": "Geez Security",
-      "icon": "lucide:shield-check",
       "summary": "Bilingual cybersecurity academy for Ethiopia with certification tracks and course modules.",
       "role": "Design + build",
-      "meta": "Shipped · 2026",
       "cta": "Visit site",
       "url": "https://geezsec.vercel.app",
       "image": "profile/assets/geezsec.jpg"
     }
   ],
-  "stack": [
-    { "label": "TypeScript", "icon": "si:typescript" },
-    { "label": "Python", "icon": "si:python" },
-    { "label": "Go", "icon": "si:go" },
-    { "label": "Next.js", "icon": "si:nextdotjs" },
-    { "label": "React", "icon": "si:react" },
-    { "label": "Flutter", "icon": "si:flutter" },
-    { "label": "Hono", "icon": "si:hono" },
-    { "label": "PostgreSQL", "icon": "si:postgresql" },
-    { "label": "Redis", "icon": "si:redis" },
-    { "label": "Docker", "icon": "si:docker" },
-    { "label": "Kubernetes", "icon": "si:kubernetes" },
-    { "label": "Terraform", "icon": "si:terraform" }
-  ],
   "repos": [
-    { "name": "better-waitlist", "icon": "lucide:list-checks", "summary": "Waitlist plugin for Better Auth, on npm." },
-    { "name": "better-middleware", "icon": "lucide:key-round", "summary": "Framework-agnostic auth middleware." },
-    { "name": "haxurn-core", "icon": "lucide:boxes", "summary": "Monorepo foundation for security tools." },
-    { "name": "cybershield-2026-harden", "icon": "lucide:shield-alert", "summary": "CIS hardening scored by Wazuh SCA." },
-    { "name": "dotfiles", "icon": "lucide:terminal", "summary": "tmux, nvim, and zsh configuration." }
+    {
+      "name": "better-waitlist",
+      "summary": "Waitlist plugin for Better Auth, on npm."
+    },
+    {
+      "name": "better-middleware",
+      "summary": "Framework-agnostic auth middleware."
+    },
+    {
+      "name": "haxurn-core",
+      "summary": "Monorepo foundation for security tools."
+    },
+    {
+      "name": "cybershield-2026-harden",
+      "summary": "CIS hardening scored by Wazuh SCA."
+    },
+    {
+      "name": "dotfiles",
+      "summary": "tmux, nvim, and zsh configuration."
+    }
   ],
   "languageIcons": {
     "TypeScript": "si:typescript",
     "Shell": "si:gnubash"
   },
   "links": [
-    { "label": "Website", "icon": "lucide:globe", "url": "https://www.haxurn.space" },
-    { "label": "LinkedIn", "icon": "local:linkedin", "url": "https://www.linkedin.com/in/samsontesfaye" },
-    { "label": "X", "icon": "si:x", "url": "https://x.com/haxurn" },
-    { "label": "Hack The Box", "icon": "si:hackthebox", "url": "https://app.hackthebox.com/users/1398172" }
+    {
+      "label": "Website",
+      "icon": "lucide:globe",
+      "url": "https://www.haxurn.space"
+    },
+    {
+      "label": "LinkedIn",
+      "icon": "local:linkedin",
+      "url": "https://www.linkedin.com/in/samsontesfaye"
+    },
+    {
+      "label": "X",
+      "icon": "si:x",
+      "url": "https://x.com/haxurn"
+    },
+    {
+      "label": "Hack The Box",
+      "icon": "si:hackthebox",
+      "url": "https://app.hackthebox.com/users/1398172"
+    }
   ],
   "themes": {
     "dark": {
-      "bg": "#1a1a1a",
-      "surface2": "#262626",
-      "border": "#363636",
-      "fg": "#f7f7f7",
-      "fgMuted": "#c7c7c7",
-      "fgSubtle": "#a4a4a4",
-      "accent": "#49de78",
-      "accentFg": "#0f1a13",
-      "accentInk": "#49de78",
-      "aurora": ["#121212", "#343434", "#5a5a5a", "#17693a", "#2bab58", "#49de78"]
+      "bg": "#080b09",
+      "surface": "#101411",
+      "surface2": "#1b1f1c",
+      "border": "#2c322d",
+      "fg": "#eef3ef",
+      "fgMuted": "#c5cdc6",
+      "fgSubtle": "#a6ada7",
+      "accentInk": "#51e674",
+      "contrib": [
+        "#161b22",
+        "#0e4429",
+        "#006d32",
+        "#26a641",
+        "#39d353"
+      ]
     },
     "light": {
-      "bg": "#faf3e3",
-      "surface2": "#e8ddc7",
-      "border": "#d0c2ab",
-      "fg": "#191610",
-      "fgMuted": "#312d27",
-      "fgSubtle": "#4c473f",
-      "accent": "#137738",
-      "accentFg": "#faf3e3",
-      "accentInk": "#0d632d",
-      "aurora": ["#f4ead7", "#ddd0b8", "#bfb096", "#4f9a68", "#1f7a40", "#0d632d"]
+      "bg": "#fbfcfe",
+      "surface": "#f5f7f9",
+      "surface2": "#eaedf1",
+      "border": "#d5dade",
+      "fg": "#121921",
+      "fgMuted": "#313942",
+      "fgSubtle": "#4e5661",
+      "accentInk": "#1a57ad",
+      "contrib": [
+        "#e6e9ee",
+        "#9be9a8",
+        "#40c463",
+        "#30a14e",
+        "#216e39"
+      ]
+    }
+  },
+  "modes": {
+    "dark": {
+      "label": "hacker",
+      "banner": "rain",
+      "role": "Cybersecurity specialist · Former INSA red team",
+      "statement": "I find security weaknesses so they can be fixed.",
+      "focus": "TryHackMe top 2% · Hack The Box global rank 1049",
+      "disciplines": [
+        "Web security testing",
+        "Red teaming",
+        "Cryptography",
+        "Reverse engineering",
+        "Exploit development"
+      ],
+      "stackLabel": "Security tools",
+      "stackCommand": "which nmap burpsuite ghidra gdb",
+      "stack": [
+        {
+          "label": "nmap",
+          "icon": "lucide:radar"
+        },
+        {
+          "label": "Subfinder",
+          "icon": "lucide:scan-search"
+        },
+        {
+          "label": "Wireshark",
+          "icon": "si:wireshark"
+        },
+        {
+          "label": "Burp Suite",
+          "icon": "si:burpsuite"
+        },
+        {
+          "label": "Caido",
+          "icon": "lucide:radio-tower"
+        },
+        {
+          "label": "OWASP ZAP",
+          "icon": "si:owasp"
+        },
+        {
+          "label": "sqlmap",
+          "icon": "lucide:database"
+        },
+        {
+          "label": "ffuf",
+          "icon": "lucide:zap"
+        },
+        {
+          "label": "Nuclei",
+          "icon": "lucide:atom"
+        },
+        {
+          "label": "Snyk",
+          "icon": "si:snyk"
+        },
+        {
+          "label": "Metasploit",
+          "icon": "si:metasploit"
+        },
+        {
+          "label": "pwntools",
+          "icon": "lucide:wrench"
+        },
+        {
+          "label": "Ghidra",
+          "icon": "lucide:bug"
+        },
+        {
+          "label": "radare2",
+          "icon": "lucide:binary"
+        },
+        {
+          "label": "gdb",
+          "icon": "si:gnu"
+        },
+        {
+          "label": "Hashcat",
+          "icon": "lucide:hash"
+        },
+        {
+          "label": "John the Ripper",
+          "icon": "lucide:key-round"
+        }
+      ]
+    },
+    "light": {
+      "label": "dev",
+      "banner": "code",
+      "role": "Full-stack software engineer · Co-founder & CTO",
+      "statement": "I build web products from the interface to the infrastructure.",
+      "focus": "Co-founder & CTO, Solvix Labs PLC · building Axova",
+      "disciplines": [
+        "Frontend",
+        "Backend",
+        "Mobile",
+        "APIs",
+        "Databases",
+        "DevOps",
+        "Cloud",
+        "Architecture",
+        "Design",
+        "Open source"
+      ],
+      "stackLabel": "Stack",
+      "stackCommand": "cat package.json | jq .dependencies",
+      "stack": [
+        {
+          "label": "TypeScript",
+          "icon": "si:typescript"
+        },
+        {
+          "label": "Python",
+          "icon": "si:python"
+        },
+        {
+          "label": "Go",
+          "icon": "si:go"
+        },
+        {
+          "label": "Next.js",
+          "icon": "si:nextdotjs"
+        },
+        {
+          "label": "React",
+          "icon": "si:react"
+        },
+        {
+          "label": "Flutter",
+          "icon": "si:flutter"
+        },
+        {
+          "label": "Hono",
+          "icon": "si:hono"
+        },
+        {
+          "label": "PostgreSQL",
+          "icon": "si:postgresql"
+        },
+        {
+          "label": "Redis",
+          "icon": "si:redis"
+        },
+        {
+          "label": "Docker",
+          "icon": "si:docker"
+        },
+        {
+          "label": "Kubernetes",
+          "icon": "si:kubernetes"
+        },
+        {
+          "label": "Terraform",
+          "icon": "si:terraform"
+        }
+      ]
     }
   }
 }

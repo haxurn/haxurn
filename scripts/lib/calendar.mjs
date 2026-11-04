@@ -1,25 +1,15 @@
 const MS_PER_WEEK = 7 * 86_400_000;
 const DAYS_PER_WEEK = 7;
 const MIN_WEEKS_FOR_LABEL = 3;
-/** Level fills match the portfolio grid: the accent at 25, 50, 75, and 100 percent. */
-const LEVEL_MIX = [0.25, 0.5, 0.75, 1];
 const CELL_RATIO = 0.8;
 const CELL_RADIUS = 2.5;
 const WAVE_SECONDS = 8;
 const LEGEND_CELL = 11;
 const LEGEND_GAP = 3;
 
-export function mixHex(from, to, amount) {
-  const channels = [1, 3, 5].map((at) => {
-    const start = parseInt(from.slice(at, at + 2), 16);
-    const end = parseInt(to.slice(at, at + 2), 16);
-    return Math.round(start + (end - start) * amount).toString(16).padStart(2, '0');
-  });
-  return `#${channels.join('')}`;
-}
-
+/** The portfolio draws this grid in GitHub's own greens, one scale per theme. */
 export function levelFills(theme) {
-  return [theme.surface2, ...LEVEL_MIX.map((amount) => mixHex(theme.bg, theme.accent, amount))];
+  return theme.contrib;
 }
 
 /** One label per month, at the first week starting in it, skipping months too narrow to label. */
@@ -39,7 +29,7 @@ export function monthMarkers(start, weekCount) {
 }
 
 export const CALENDAR_STYLE = `.w{animation:wave ${WAVE_SECONDS}s linear infinite}`
-  + '@keyframes wave{0%,16%,100%{opacity:.6}8%{opacity:1}}'
+  + '@keyframes wave{0%,16%,100%{opacity:.85}8%{opacity:1}}'
   + '@media (prefers-reduced-motion:reduce){.w{animation:none}}';
 
 export function renderCalendarGrid({ weeks, start, theme, caption, x, y, width }) {

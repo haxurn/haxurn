@@ -1,55 +1,45 @@
 import { createHash } from 'node:crypto';
 import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
-import { encodeApng, encodePng } from './lib/apng.mjs';
-import { renderAurora } from './lib/aurora.mjs';
 import { loadProfileData } from './lib/github.mjs';
-import { AURORA_GRID, renderCard, renderHeader, renderLedger, renderLink, renderStack } from './lib/panels.mjs';
+import { renderActivity, renderCard, renderHeader, renderLedger, renderLink, renderStack } from './lib/panels.mjs';
 import { buildReadme } from './lib/readme.mjs';
 import { createTypesetter } from './lib/text.mjs';
 
 const VERSION_LENGTH = 10;
-const AURORA_FRAMES = 72;
-const AURORA_FPS = 12;
 
 const root = new URL('../', import.meta.url);
 const fromRoot = (relative) => new URL(relative, root);
 const OUT_DIR = fromRoot('profile/generated/');
 const numbered = (prefix, index) => `${prefix}-${String(index + 1).padStart(2, '0')}`;
 
-function renderAuroraImages(palette) {
-  const { cols, rows } = AURORA_GRID;
-  const frame = (phase) => renderAurora({ cols, rows, paletteSize: palette.length, phase });
-  const frames = Array.from({ length: AURORA_FRAMES }, (_, index) => frame(index / AURORA_FRAMES));
+function renderTheme(name, { config, data, type, avatar, images }) {
+  const theme = config.themes[name];
+  const mode = config.modes[name];
   return {
-    still: encodePng({ width: cols, height: rows, palette, pixels: frames[0] }).toString('base64'),
-    animated: encodeApng({ width: cols, height: rows, palette, frames, fps: AURORA_FPS }).toString('base64'),
-  };
-}
-
-function renderTheme(theme, { config, data, type, artwork, images }) {
-  const context = { type, theme, artwork };
-  const aurora = renderAuroraImages(theme.aurora);
-  return {
-    header: renderHeader({ ...context, person: config.person, username: config.username, data, aurora }),
-    ...Object.fromEntries(config.featured.map((project, index) => [
-      numbered('card', index),
-      renderCard({ ...context, project, imageData: images[index] }),
-    ])),
-    stack: renderStack({ type, theme, stack: config.stack }),
-    repos: renderLedger({ type, theme, repos: config.repos, data, languageIcons: config.languageIcons }),
+    header: renderHeader({ type, theme, mode, person: config.person, avatar }),
     ...Object.fromEntries(config.links.map(({ label, icon }, index) => [
       numbered('link', index),
       renderLink({ type, theme, label, icon }),
     ])),
+    activity: renderActivity({ type, theme, data }),
+    ...Object.fromEntries(config.featured.map((project, index) => [
+      numbered('card', index),
+      renderCard({ type, theme, project, imageData: images[index] }),
+    ])),
+    stack: renderStack({ type, theme, mode }),
+    repos: renderLedger({ type, theme, repos: config.repos, data, languageIcons: config.languageIcons }),
   };
 }
 
 function readmePanels(config, version) {
-  const { person, featured, username, links, stack, repos } = config;
-  const disciplines = person.disciplines.map(({ label }) => label).join(', ');
+  const { person, featured, username, links, modes, repos } = config;
+  const { dark: hacker, light: dev } = modes;
+  const stackLabels = (mode) => mode.stack.map(({ label }) => label).join(', ');
   return {
     version,
-    header: { name: 'header', alt: `${person.name} (${person.alias}): ${person.role}. ${person.focus}. ${person.location}. ${disciplines}.` },
+    header: { name: 'header', alt: `${person.name} (${person.alias}): ${dev.role}. ${hacker.role}. ${person.location}.` },
+    links: links.map(({ label, url }, index) => ({ name: numbered('link', index), alt: label, url })),
+    activity: { name: 'activity', alt: 'GitHub contributions over the last year', url: `https://github.com/${username}` },
     cards: featured.map((project, index) => ({
       name: numbered('card', index),
       alt: `${project.title}: ${project.summary}`,
@@ -57,29 +47,28 @@ function readmePanels(config, version) {
     })),
     stack: {
       name: 'stack',
-      alt: `Stack: ${stack.map(({ label }) => label).join(', ')}`,
-      url: 'https://www.haxurn.space/#stack',
+      alt: `${dev.stackLabel}: ${stackLabels(dev)}. ${hacker.stackLabel}: ${stackLabels(hacker)}.`,
+      url: 'https://www.haxurn.space/skills',
     },
     ledger: {
       name: 'repos',
       alt: `Selected repositories: ${repos.map(({ name }) => name).join(', ')}`,
       url: `https://github.com/${username}?tab=repositories`,
     },
-    links: links.map(({ label, url }, index) => ({ name: numbered('link', index), alt: label, url })),
   };
 }
 
 async function main() {
   const config = JSON.parse(await readFile(fromRoot('profile.config.json'), 'utf8'));
-  const artwork = JSON.parse(await readFile(fromRoot('profile/artwork.json'), 'utf8'));
   const type = createTypesetter(await readFile(fromRoot('fonts/JetBrainsMono-Medium.ttf')));
+  const avatar = (await readFile(fromRoot('profile/assets/avatar.png'))).toString('base64');
   const images = await Promise.all(config.featured.map(async ({ image }) =>
     (await readFile(fromRoot(image))).toString('base64')));
   const data = await loadProfileData(config, fromRoot('profile/github-cache.json').pathname);
 
-  const shared = { config, data, type, artwork, images };
-  const files = Object.entries(config.themes).flatMap(([name, theme]) =>
-    Object.entries(renderTheme(theme, shared)).map(([panel, svg]) => [`${panel}-${name}.svg`, svg]));
+  const shared = { config, data, type, avatar, images };
+  const files = Object.keys(config.themes).flatMap((name) =>
+    Object.entries(renderTheme(name, shared)).map(([panel, svg]) => [`${panel}-${name}.svg`, svg]));
 
   const hash = createHash('sha256');
   files.forEach(([, svg]) => hash.update(svg));

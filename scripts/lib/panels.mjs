@@ -1,3 +1,4 @@
+import { BANNER_STYLE, renderBanner } from './banner.mjs';
 import { CALENDAR_STYLE, renderCalendarGrid, renderLegend } from './calendar.mjs';
 import { iconMarkup } from './icons.mjs';
 import { escapeHtml } from './readme.mjs';
@@ -5,265 +6,258 @@ import { escapeHtml } from './readme.mjs';
 const WIDTH = 880;
 const CARD_WIDTH = WIDTH / 2;
 const LINK_WIDTH = WIDTH / 4;
-const LINK_HEIGHT = 64;
-const STRIP_HEIGHT = 44;
-const MARGIN = 28;
-const CAPTION = { size: 10.5, tracking: 0.12 };
+const LINK_HEIGHT = 48;
+/** Every panel sits this far inside its image, so panels in one row get a gap. */
+const INSET = 4;
+const RADIUS = 10;
+const MARGIN = 24;
+const PROMPT_HEIGHT = 38;
+const BODY_SIZE = 13;
+const SMALL_SIZE = 12;
 
-const AURORA_HEIGHT = 208;
-const AURORA_PIXEL = 4;
-const IDENTITY_HEIGHT = 204;
-const DISCIPLINE_HEIGHT = 52;
-const CALENDAR_TOP = 44;
-const CALENDAR_BOTTOM = 56;
-const STATS_X = 610;
+const BANNER_HEIGHT = 80;
+const AVATAR_SIZE = 96;
+const IDENTITY_HEIGHT = 136;
+const DISCIPLINE_LINE = 20;
+const STATEMENT_SIZE = 30;
+const STATEMENT_LINE = 38;
+const STATEMENT_WIDTH = 500;
+const STATEMENT_MAX_LINES = 3;
 
-const CARD_IMAGE_HEIGHT = 196;
-const CARD_HEIGHT = 424;
-const CARD_FOOTER_HEIGHT = 60;
+const CALENDAR_TOP = 46;
+const CALENDAR_BOTTOM = 54;
 
-const STACK_ROW_HEIGHT = 58;
-const LEDGER_ROW_HEIGHT = 48;
-const LEDGER_COLUMNS = { icon: MARGIN, name: 56, summary: 268, language: 680, stars: WIDTH - MARGIN };
+const CARD_IMAGE_HEIGHT = 190;
+const CARD_HEIGHT = 346;
 
-const PENDING_SECONDS = 1.2;
+const CHIP_HEIGHT = 34;
+const CHIP_GAP = 8;
+const CHIP_PADDING = 12;
+const CHIP_ICON = 15;
 
-export const AURORA_GRID = { cols: WIDTH / AURORA_PIXEL, rows: AURORA_HEIGHT / AURORA_PIXEL };
+const LEDGER_ROW_HEIGHT = 44;
+const LEDGER_COLUMNS = { name: MARGIN + INSET, summary: 248, language: 668, stars: WIDTH - MARGIN - INSET };
 
 const formatCount = (value) => (value === null || value === undefined ? '—' : value.toLocaleString('en-US'));
 
-function createCanvas(type, theme) {
-  const text = (value, x, y, size, fill, { tracking = 0, anchor = 'start' } = {}) => {
-    const start = anchor === 'end' ? x - type.width(value, size, tracking) : x;
-    return `<path fill="${fill}" d="${type.path(value, start, y, size, tracking)}"/>`;
+function createCanvas(type, theme, width) {
+  const left = INSET;
+  const right = width - INSET;
+  const text = (value, x, y, size, fill, { anchor = 'start' } = {}) => {
+    const start = anchor === 'end' ? x - type.width(value, size) : x;
+    return `<path fill="${fill}" d="${type.path(value, start, y, size)}"/>`;
   };
-  const caption = (value, x, y, fill = theme.fgSubtle, anchor = 'start') =>
-    text(value.toUpperCase(), x, y, CAPTION.size, fill, { tracking: CAPTION.tracking, anchor });
-  const hline = (y, x1 = 0, x2 = WIDTH) => `<rect x="${x1}" y="${y}" width="${x2 - x1}" height="1" fill="${theme.border}"/>`;
-  const vline = (x, y1, y2) => `<rect x="${x}" y="${y1}" width="1" height="${y2 - y1}" fill="${theme.border}"/>`;
+  const hline = (y) => `<rect x="${left}" y="${y}" width="${right - left}" height="1" fill="${theme.border}"/>`;
 
-  /** Panel head: icon and label on the left, quiet metadata on the right. */
-  const panelHead = (icon, label, right, width) => [
-    `<rect width="${width}" height="${STRIP_HEIGHT}" fill="${theme.surface2}"/>`,
-    iconMarkup(icon, MARGIN, 14, 16, theme.accentInk),
-    caption(label, MARGIN + 26, 26, theme.fg),
-    caption(right, width - MARGIN, 26, theme.fgSubtle, 'end'),
-    hline(STRIP_HEIGHT, 0, width),
+  /** Runs of differently colored text on one line. Returns the markup and where the line ended. */
+  const spans = (parts, x, y, size) => {
+    let cursor = x;
+    const markup = parts.map(([value, fill]) => {
+      const drawn = text(value, cursor, y, size, fill);
+      cursor += type.width(value, size);
+      return drawn;
+    }).join('');
+    return { markup, end: cursor };
+  };
+
+  /** The shell prompt across the top of a panel: `$ command`, with quiet metadata on the right. */
+  const promptHead = (command, meta = '') => [
+    spans([['$ ', theme.accentInk], [command, theme.fgMuted]], left + MARGIN, 24, SMALL_SIZE).markup,
+    meta ? text(meta, right - MARGIN, 24, SMALL_SIZE, theme.fgSubtle, { anchor: 'end' }) : '',
+    hline(PROMPT_HEIGHT),
   ].join('');
 
-  return { text, caption, hline, vline, panelHead };
+  return { left, right, text, hline, spans, promptHead };
 }
 
 function svg(width, height, label, theme, body, style = '') {
+  const frameWidth = width - INSET * 2;
+  const frameHeight = height - 1;
+  const clip = `<clipPath id="panel"><rect x="${INSET}" y=".5" width="${frameWidth}" height="${frameHeight}" rx="${RADIUS}"/></clipPath>`;
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-label="${escapeHtml(label)}">`
+    + `<defs>${clip}</defs>`
     + (style ? `<style>${style}</style>` : '')
-    + `<rect width="${width}" height="${height}" fill="${theme.bg}"/>${body}`
-    + `<rect x=".5" y=".5" width="${width - 1}" height="${height - 1}" fill="none" stroke="${theme.border}"/></svg>`;
+    + `<g clip-path="url(#panel)"><rect width="${width}" height="${height}" fill="${theme.surface}"/>${body}</g>`
+    + `<rect x="${INSET}" y=".5" width="${frameWidth}" height="${frameHeight}" rx="${RADIUS}" fill="none" stroke="${theme.border}"/></svg>`;
 }
 
-function heading(artwork, value, x, y, size, fill) {
-  return `<path fill="${fill}" transform="translate(${x} ${y}) scale(${size / 100})" d="${artwork[value].d}"/>`;
+function bannerBlock(canvas, theme, mode, width) {
+  const dashes = [];
+  for (let x = canvas.left; x < canvas.right; x += 12) {
+    dashes.push(`<rect x="${x}" y="${BANNER_HEIGHT - 3}" width="8" height="3" fill="${theme.accentInk}"/>`);
+  }
+  return `<rect width="${width}" height="${BANNER_HEIGHT}" fill="${theme.bg}"/>`
+    + renderBanner({ pattern: mode.banner, width, height: BANNER_HEIGHT - 12, ink: theme.accentInk, muted: theme.surface2 })
+    + dashes.join('');
 }
 
-function stamp(canvas, theme, label, x, y) {
-  const width = 88;
-  const height = 28;
-  return `<g transform="rotate(-6 ${x + width / 2} ${y + height / 2})">`
-    + `<rect x="${x}" y="${y}" width="${width}" height="${height}" fill="none" stroke="${theme.accentInk}"/>`
-    + `<rect x="${x + 3}" y="${y + 3}" width="${width - 6}" height="${height - 6}" fill="none" stroke="${theme.accentInk}"/>`
-    + canvas.caption(label, x + 17, y + 18, theme.accentInk)
-    + '</g>';
+function portrait(theme, avatar, x, y) {
+  return `<defs><radialGradient id="glow" cx="50%" cy="38%" r="70%"><stop offset="0" stop-color="${theme.accentInk}" stop-opacity=".7"/><stop offset="1" stop-color="${theme.surface2}"/></radialGradient>`
+    + `<clipPath id="face"><rect x="${x}" y="${y}" width="${AVATAR_SIZE}" height="${AVATAR_SIZE}" rx="14"/></clipPath></defs>`
+    + `<g clip-path="url(#face)"><rect x="${x}" y="${y}" width="${AVATAR_SIZE}" height="${AVATAR_SIZE}" fill="url(#glow)"/>`
+    + `<image x="${x}" y="${y}" width="${AVATAR_SIZE}" height="${AVATAR_SIZE}" href="data:image/png;base64,${avatar}"/></g>`
+    + `<rect x="${x}" y="${y}" width="${AVATAR_SIZE}" height="${AVATAR_SIZE}" rx="14" fill="none" stroke="${theme.border}"/>`;
 }
 
-/** Small 2x2 mark whose squares blink in turn, like work in progress. */
-function pendingMark(theme, x, y) {
-  const square = 4;
-  const gap = 2;
-  return [[0, 0], [1, 0], [1, 1], [0, 1]].map(([column, row], index) =>
-    `<rect class="pending" style="animation-delay:${(index * PENDING_SECONDS) / 4}s" x="${x + column * (square + gap)}" y="${y + row * (square + gap)}" width="${square}" height="${square}" fill="${theme.accent}"/>`).join('');
-}
-
-function auroraHead(canvas, type, theme, person, username) {
-  const handleWidth = type.width(username, 13);
-  return [
-    `<rect width="${WIDTH}" height="${STRIP_HEIGHT}" fill="${theme.surface2}"/>`,
-    canvas.text(username, MARGIN, 27, 13, theme.fg),
-    pendingMark(theme, MARGIN + handleWidth + 16, 17),
-    canvas.caption(person.status, MARGIN + handleWidth + 38, 26, theme.fg),
-    canvas.text(`github.com/${username}`, WIDTH - MARGIN, 27, 12, theme.fgSubtle, { anchor: 'end' }),
-    canvas.hline(STRIP_HEIGHT),
-  ].join('');
-}
-
-function auroraBanner(aurora) {
-  const attributes = `width="${WIDTH}" height="${AURORA_HEIGHT}" preserveAspectRatio="none" style="image-rendering:pixelated"`;
-  return `<g transform="translate(0 ${STRIP_HEIGHT})">`
-    + `<image class="still" ${attributes} href="data:image/png;base64,${aurora.still}"/>`
-    + `<image class="live" ${attributes} href="data:image/png;base64,${aurora.animated}"/></g>`;
-}
-
-function identityBlock(canvas, theme, artwork, person, top) {
-  return [
-    canvas.caption(`${person.alias} · ${person.location}`, MARGIN, top + 36, theme.accentInk),
-    stamp(canvas, theme, 'On file', STATS_X - 112, top + 20),
-    heading(artwork, person.name, MARGIN - 2, top + 102, 68, theme.fg),
-    canvas.text(person.role, MARGIN, top + 138, 15, theme.fgMuted),
-    `<circle class="pulse" cx="${MARGIN + 4}" cy="${top + 170}" r="4" fill="${theme.accent}"/>`,
-    canvas.caption(person.focus, MARGIN + 18, top + 174, theme.fgMuted),
-  ].join('');
-}
-
-function statsBlock(canvas, theme, stats, top) {
-  const cellWidth = (WIDTH - STATS_X) / 2;
-  const cellHeight = IDENTITY_HEIGHT / 2;
-  const cells = stats.map(({ icon, label, value }, index) => {
-    const x = STATS_X + (index % 2) * cellWidth + 18;
-    const y = top + Math.floor(index / 2) * cellHeight;
-    return iconMarkup(icon, x, y + 20, 15, theme.accentInk)
-      + canvas.caption(label, x, y + 54)
-      + canvas.text(value, x, y + 82, 19, theme.fg);
+/** The mode's disciplines joined by accent slashes, flowed onto as many lines as they need. */
+function disciplineLines(canvas, type, theme, disciplines, top) {
+  const maxX = canvas.right - MARGIN;
+  const separator = ' / ';
+  let x = canvas.left + MARGIN;
+  let y = top + 25;
+  const parts = disciplines.map((label, index) => {
+    const lower = label.toLowerCase();
+    const hasNext = index < disciplines.length - 1;
+    if (x + type.width(lower + (hasNext ? separator : ''), SMALL_SIZE) > maxX) {
+      x = canvas.left + MARGIN;
+      y += DISCIPLINE_LINE;
+    }
+    const line = canvas.spans([[lower, theme.fgSubtle], ...(hasNext ? [[separator, theme.accentInk]] : [])], x, y, SMALL_SIZE);
+    x = line.end;
+    return line.markup;
   });
-  return [
-    canvas.vline(STATS_X, top, top + IDENTITY_HEIGHT),
-    canvas.vline(STATS_X + cellWidth, top, top + IDENTITY_HEIGHT),
-    canvas.hline(top + cellHeight, STATS_X, WIDTH),
-    ...cells,
-  ].join('');
+  return { markup: parts.join(''), bottom: y + 16 };
 }
 
-function disciplineStrip(canvas, theme, disciplines, top) {
-  const cellWidth = WIDTH / disciplines.length;
-  return disciplines.flatMap(({ label, icon }, index) => {
-    const x = index * cellWidth;
-    return [
-      index ? canvas.vline(Math.round(x), top, top + DISCIPLINE_HEIGHT) : '',
-      iconMarkup(icon, Math.round(x) + 16, top + 18, 16, theme.accentInk),
-      canvas.caption(label, Math.round(x) + 40, top + 30, theme.fgMuted),
-    ];
-  }).join('');
-}
-
-export function renderHeader({ type, theme, artwork, person, username, data, aurora }) {
-  const canvas = createCanvas(type, theme);
-  const identityTop = STRIP_HEIGHT + AURORA_HEIGHT;
-  const disciplineTop = identityTop + IDENTITY_HEIGHT;
-  const calendarTop = disciplineTop + DISCIPLINE_HEIGHT;
-  const { weeks, start, total } = data.contributions;
-  const grid = renderCalendarGrid({
-    weeks, start, theme, caption: canvas.caption, x: MARGIN, y: calendarTop + CALENDAR_TOP, width: WIDTH - MARGIN * 2,
-  });
-  const footerY = calendarTop + CALENDAR_TOP + grid.height + 30;
-  const height = calendarTop + CALENDAR_TOP + grid.height + CALENDAR_BOTTOM;
-  const stats = [
-    { icon: 'lucide:folder-git-2', label: 'Repos', value: formatCount(data.user.publicRepos) },
-    { icon: 'lucide:users', label: 'Followers', value: formatCount(data.user.followers) },
-    { icon: 'lucide:activity', label: 'Contributions', value: formatCount(total) },
-    { icon: 'lucide:badge-check', label: 'Status', value: 'Active' },
-  ];
+export function renderHeader({ type, theme, mode, person, avatar }) {
+  const canvas = createCanvas(type, theme, WIDTH);
+  const contentX = canvas.left + MARGIN;
+  const promptTop = BANNER_HEIGHT;
+  const identityTop = promptTop + PROMPT_HEIGHT;
+  const identityBottom = identityTop + IDENTITY_HEIGHT;
+  const nameX = contentX + AVATAR_SIZE + 22;
+  const disciplines = disciplineLines(canvas, type, theme, mode.disciplines, identityBottom);
+  const statement = type.wrap(mode.statement, STATEMENT_SIZE, STATEMENT_WIDTH, STATEMENT_MAX_LINES);
+  const statementTop = disciplines.bottom + 44;
+  const focusY = statementTop + (statement.length - 1) * STATEMENT_LINE + 36;
+  const height = focusY + 28;
 
   const body = [
-    auroraHead(canvas, type, theme, person, username),
-    auroraBanner(aurora),
+    bannerBlock(canvas, theme, mode, WIDTH),
+    canvas.spans([[person.prompt, theme.accentInk], [':~$ ', theme.fgSubtle], ['whoami', theme.fgMuted]], contentX, promptTop + 24, SMALL_SIZE).markup,
+    `<circle class="pulse" cx="${canvas.right - MARGIN - type.width(mode.label, SMALL_SIZE) - 12}" cy="${promptTop + 20}" r="3.5" fill="${theme.accentInk}"/>`,
+    canvas.text(mode.label, canvas.right - MARGIN, promptTop + 24, SMALL_SIZE, theme.fgMuted, { anchor: 'end' }),
     canvas.hline(identityTop),
-    identityBlock(canvas, theme, artwork, person, identityTop),
-    statsBlock(canvas, theme, stats, identityTop),
-    canvas.hline(disciplineTop),
-    disciplineStrip(canvas, theme, person.disciplines, disciplineTop),
-    canvas.hline(calendarTop),
-    grid.markup,
-    canvas.caption(person.fieldCaption, MARGIN, footerY, theme.fgMuted),
-    renderLegend({ theme, caption: canvas.caption, right: WIDTH - MARGIN, y: footerY }),
+    portrait(theme, avatar, contentX, identityTop + 20),
+    canvas.text(person.name, nameX, identityTop + 54, 24, theme.fg),
+    canvas.text(mode.role, nameX, identityTop + 80, BODY_SIZE, theme.fgMuted),
+    iconMarkup('lucide:map-pin', nameX, identityTop + 92, 13, theme.fgSubtle),
+    canvas.text(person.location, nameX + 20, identityTop + 103, SMALL_SIZE, theme.fgSubtle),
+    canvas.hline(identityBottom),
+    disciplines.markup,
+    canvas.hline(disciplines.bottom),
+    ...statement.map((line, row) => canvas.text(line, contentX, statementTop + row * STATEMENT_LINE, STATEMENT_SIZE, theme.fg)),
+    `<circle cx="${contentX + 4}" cy="${focusY - 4}" r="4" fill="${theme.accentInk}"/>`,
+    canvas.text(mode.focus, contentX + 18, focusY, BODY_SIZE, theme.fgMuted),
   ].join('');
 
-  const style = `${CALENDAR_STYLE}.pulse{animation:pulse 1.8s ease-in-out infinite}@keyframes pulse{50%{opacity:.3}}`
-    + `.pending{animation:pending ${PENDING_SECONDS}s steps(1) infinite}@keyframes pending{0%{opacity:1}25%,100%{opacity:.3}}`
-    + '@media (prefers-reduced-motion:reduce){.pulse,.pending{animation:none}.live{display:none}}';
-  return svg(WIDTH, height, `${person.name}, ${person.role}`, theme, body, style);
+  const style = `${BANNER_STYLE}.pulse{animation:pulse 1.8s ease-in-out infinite}@keyframes pulse{50%{opacity:.3}}`
+    + '@media (prefers-reduced-motion:reduce){.pulse{animation:none}}';
+  return svg(WIDTH, height, `${person.name}, ${mode.role}`, theme, body, style);
 }
 
-export function renderCard({ type, theme, artwork, project, imageData }) {
-  const canvas = createCanvas(type, theme);
-  const footerY = CARD_HEIGHT - CARD_FOOTER_HEIGHT;
-  const imageBottom = STRIP_HEIGHT + CARD_IMAGE_HEIGHT;
-  const summary = type.wrap(project.summary, 12.5, CARD_WIDTH - MARGIN * 2, 2);
-  const ctaLabel = project.cta.toUpperCase();
-  const ctaWidth = type.width(ctaLabel, CAPTION.size, CAPTION.tracking) + 48;
-  const ctaX = CARD_WIDTH - MARGIN - ctaWidth;
+export function renderActivity({ type, theme, data }) {
+  const canvas = createCanvas(type, theme, WIDTH);
+  const { weeks, start, total } = data.contributions;
+  const contentX = canvas.left + MARGIN;
+  const caption = (value, x, y, fill = theme.fgSubtle, anchor = 'start') => canvas.text(value, x, y, 10.5, fill, { anchor });
+  const grid = renderCalendarGrid({
+    weeks, start, theme, caption, x: contentX, y: PROMPT_HEIGHT + CALENDAR_TOP, width: canvas.right - canvas.left - MARGIN * 2,
+  });
+  const footerY = PROMPT_HEIGHT + CALENDAR_TOP + grid.height + 26;
+  const height = PROMPT_HEIGHT + CALENDAR_TOP + grid.height + CALENDAR_BOTTOM;
+  const counts = `${formatCount(data.user.publicRepos)} repos · ${formatCount(data.user.followers)} followers`;
+  const body = [
+    canvas.promptHead('git log --since="1 year ago"', `${formatCount(total)} contributions`),
+    grid.markup,
+    canvas.text(counts, contentX, footerY, SMALL_SIZE, theme.fgSubtle),
+    renderLegend({ theme, caption, right: canvas.right - MARGIN, y: footerY }),
+  ].join('');
+  return svg(WIDTH, height, `${formatCount(total)} GitHub contributions in the last year`, theme, body, CALENDAR_STYLE);
+}
+
+export function renderCard({ type, theme, project, imageData }) {
+  const canvas = createCanvas(type, theme, CARD_WIDTH);
+  const contentX = canvas.left + MARGIN;
+  const textWidth = canvas.right - canvas.left - MARGIN * 2;
+  const imageBottom = CARD_IMAGE_HEIGHT;
+  const summary = type.wrap(project.summary, BODY_SIZE, textWidth, 2);
+  const footerY = CARD_HEIGHT - 26;
+  const ctaEnd = canvas.right - MARGIN - 18;
+  const ctaWidth = type.width(project.cta, SMALL_SIZE);
 
   const body = [
-    canvas.panelHead(project.icon, project.title, project.meta, CARD_WIDTH),
-    `<image x="0" y="${STRIP_HEIGHT}" width="${CARD_WIDTH}" height="${CARD_IMAGE_HEIGHT}" preserveAspectRatio="xMidYMin slice" href="data:image/jpeg;base64,${imageData}"/>`,
-    canvas.hline(imageBottom, 0, CARD_WIDTH),
-    heading(artwork, project.title, MARGIN - 1, imageBottom + 44, 28, theme.fg),
-    ...summary.map((line, row) => canvas.text(line, MARGIN, imageBottom + 70 + row * 19, 12.5, theme.fgMuted)),
-    canvas.hline(footerY, 0, CARD_WIDTH),
-    iconMarkup('lucide:briefcase-business', MARGIN, footerY + 22, 15, theme.fgSubtle),
-    canvas.caption(project.role, MARGIN + 24, footerY + 34),
-    `<rect x="${ctaX}" y="${footerY + 14}" width="${ctaWidth}" height="32" rx="4" fill="${theme.accent}"/>`,
-    canvas.caption(ctaLabel, ctaX + 14, footerY + 34, theme.accentFg),
-    iconMarkup('lucide:arrow-up-right', ctaX + ctaWidth - 27, footerY + 23, 14, theme.accentFg),
+    `<image x="0" y="0" width="${CARD_WIDTH}" height="${CARD_IMAGE_HEIGHT}" preserveAspectRatio="xMidYMin slice" href="data:image/jpeg;base64,${imageData}"/>`,
+    canvas.hline(imageBottom),
+    canvas.text(project.title, contentX, imageBottom + 40, 20, theme.fg),
+    ...summary.map((line, row) => canvas.text(line, contentX, imageBottom + 68 + row * 20, BODY_SIZE, theme.fgMuted)),
+    canvas.text(project.role, contentX, footerY, SMALL_SIZE, theme.fgSubtle),
+    canvas.text(project.cta, ctaEnd, footerY, SMALL_SIZE, theme.accentInk, { anchor: 'end' }),
+    `<rect x="${ctaEnd - ctaWidth}" y="${footerY + 4}" width="${ctaWidth}" height="1" fill="${theme.accentInk}"/>`,
+    iconMarkup('lucide:arrow-up-right', ctaEnd + 3, footerY - 11, 14, theme.accentInk),
   ].join('');
   return svg(CARD_WIDTH, CARD_HEIGHT, `${project.title}: ${project.summary}`, theme, body);
 }
 
-export function renderStack({ type, theme, stack }) {
-  const canvas = createCanvas(type, theme);
-  const perRow = stack.length / 2;
-  const cellWidth = WIDTH / perRow;
-  const height = STRIP_HEIGHT + STACK_ROW_HEIGHT * 2;
-  const cells = stack.flatMap(({ label, icon }, index) => {
-    const column = index % perRow;
-    const x = Math.round(column * cellWidth);
-    const y = STRIP_HEIGHT + Math.floor(index / perRow) * STACK_ROW_HEIGHT;
-    return [
-      iconMarkup(icon, x + 18, y + 20, 18, theme.fg),
-      canvas.text(label, x + 46, y + 33, 12, theme.fgMuted),
-      column && index < perRow ? canvas.vline(x, STRIP_HEIGHT, height) : '',
-    ];
+/** Logo chips like the portfolio's, flowed left to right. Returns the bottom edge of the last row. */
+function chipRows(canvas, type, theme, items, top) {
+  const maxX = canvas.right - MARGIN;
+  let x = canvas.left + MARGIN;
+  let y = top;
+  const chips = items.map(({ label, icon }) => {
+    const chipWidth = CHIP_PADDING * 2 + CHIP_ICON + 8 + type.width(label, SMALL_SIZE);
+    if (x + chipWidth > maxX) {
+      x = canvas.left + MARGIN;
+      y += CHIP_HEIGHT + CHIP_GAP;
+    }
+    const chip = `<rect x="${x}" y="${y}" width="${chipWidth}" height="${CHIP_HEIGHT}" rx="6" fill="${theme.bg}" stroke="${theme.border}"/>`
+      + iconMarkup(icon, x + CHIP_PADDING, y + (CHIP_HEIGHT - CHIP_ICON) / 2, CHIP_ICON, theme.fg)
+      + canvas.text(label, x + CHIP_PADDING + CHIP_ICON + 8, y + 21, SMALL_SIZE, theme.fgMuted);
+    x += chipWidth + CHIP_GAP;
+    return chip;
   });
-  const body = [
-    canvas.panelHead('lucide:layers', 'Stack', 'What I ship with', WIDTH),
-    canvas.hline(STRIP_HEIGHT + STACK_ROW_HEIGHT),
-    ...cells,
-  ].join('');
-  return svg(WIDTH, height, `Stack: ${stack.map(({ label }) => label).join(', ')}`, theme, body);
+  return { markup: chips.join(''), bottom: y + CHIP_HEIGHT };
+}
+
+export function renderStack({ type, theme, mode }) {
+  const canvas = createCanvas(type, theme, WIDTH);
+  const chips = chipRows(canvas, type, theme, mode.stack, PROMPT_HEIGHT + 20);
+  const height = chips.bottom + 22;
+  const body = canvas.promptHead(mode.stackCommand) + chips.markup;
+  return svg(WIDTH, height, `${mode.stackLabel}: ${mode.stack.map(({ label }) => label).join(', ')}`, theme, body);
 }
 
 export function renderLedger({ type, theme, repos, data, languageIcons }) {
-  const canvas = createCanvas(type, theme);
+  const canvas = createCanvas(type, theme, WIDTH);
   const columns = LEDGER_COLUMNS;
-  const height = STRIP_HEIGHT + repos.length * LEDGER_ROW_HEIGHT;
+  const height = PROMPT_HEIGHT + repos.length * LEDGER_ROW_HEIGHT;
   const summaryWidth = columns.language - columns.summary - MARGIN;
 
-  const rows = repos.flatMap(({ name, summary, icon }, row) => {
-    const y = STRIP_HEIGHT + row * LEDGER_ROW_HEIGHT;
+  const rows = repos.flatMap(({ name, summary }, row) => {
+    const y = PROMPT_HEIGHT + row * LEDGER_ROW_HEIGHT;
     const live = data.repos[name];
     const languageIcon = languageIcons[live.language];
-    const starsWidth = type.width(String(live.stars), 12);
+    const starsWidth = type.width(String(live.stars), SMALL_SIZE);
     return [
       row ? canvas.hline(y) : '',
-      iconMarkup(icon, columns.icon, y + 16, 16, theme.accentInk),
-      canvas.text(name, columns.name, y + 29, 12.5, theme.fg),
-      canvas.text(type.wrap(summary, 12, summaryWidth, 1)[0], columns.summary, y + 29, 12, theme.fgMuted),
-      languageIcon ? iconMarkup(languageIcon, columns.language, y + 17, 14, theme.fgSubtle) : '',
-      canvas.text(live.language ?? '—', columns.language + 22, y + 29, 12, theme.fgSubtle),
-      iconMarkup('lucide:star', columns.stars - starsWidth - 20, y + 17, 14, theme.accentInk),
-      canvas.text(String(live.stars), columns.stars, y + 29, 12, theme.fg, { anchor: 'end' }),
+      canvas.text(name, columns.name, y + 27, BODY_SIZE, theme.fg),
+      canvas.text(type.wrap(summary, SMALL_SIZE, summaryWidth, 1)[0], columns.summary, y + 27, SMALL_SIZE, theme.fgMuted),
+      languageIcon ? iconMarkup(languageIcon, columns.language, y + 15, 14, theme.fgSubtle) : '',
+      canvas.text(live.language ?? '—', columns.language + 22, y + 27, SMALL_SIZE, theme.fgSubtle),
+      iconMarkup('lucide:star', columns.stars - starsWidth - 20, y + 15, 14, theme.accentInk),
+      canvas.text(String(live.stars), columns.stars, y + 27, SMALL_SIZE, theme.fg, { anchor: 'end' }),
     ];
   });
 
-  const body = [
-    canvas.panelHead('lucide:folder-git-2', 'Open source', `${repos.length} repositories`, WIDTH),
-    ...rows,
-  ].join('');
+  const body = canvas.promptHead('ls ~/open-source', `${repos.length} repositories`) + rows.join('');
   return svg(WIDTH, height, 'Selected repositories', theme, body);
 }
 
 export function renderLink({ type, theme, label, icon }) {
-  const canvas = createCanvas(type, theme);
+  const canvas = createCanvas(type, theme, LINK_WIDTH);
   const middle = LINK_HEIGHT / 2;
-  const body = iconMarkup(icon, 20, middle - 9, 18, theme.fg)
-    + canvas.caption(label, 48, middle + 4, theme.fg)
-    + iconMarkup('lucide:arrow-up-right', LINK_WIDTH - 34, middle - 7, 14, theme.accentInk);
+  const body = iconMarkup(icon, canvas.left + 16, middle - 8, 16, theme.fg)
+    + canvas.text(label, canvas.left + 42, middle + 4.5, SMALL_SIZE, theme.fg)
+    + iconMarkup('lucide:arrow-up-right', canvas.right - 28, middle - 7, 14, theme.accentInk);
   return svg(LINK_WIDTH, LINK_HEIGHT, label, theme, body);
 }
