@@ -4,7 +4,11 @@
     "name": "Samson Tesfaye",
     "alias": "Haxurn",
     "prompt": "haxurn@addis",
-    "location": "Addis Ababa, Ethiopia"
+    "location": "Addis Ababa, Ethiopia",
+    "role": "Full-stack & security engineer · Co-founder & CTO",
+    "statement": "I build web products and test their security.",
+    "focus": "Co-founder & CTO, Solvix Labs PLC · building Axova",
+    "label": "software + security"
   },
   "featured": [
     {
@@ -109,9 +113,78 @@
     }
   },
   "modes": {
-    "dark": {
-      "label": "hacker",
-      "banner": "rain",
+    "software": {
+      "label": "Software",
+      "role": "Full-stack software engineer · Co-founder & CTO",
+      "statement": "I build web products from the interface to the infrastructure.",
+      "focus": "Co-founder & CTO, Solvix Labs PLC · building Axova",
+      "disciplines": [
+        "Frontend",
+        "Backend",
+        "Mobile",
+        "APIs",
+        "Databases",
+        "DevOps",
+        "Cloud",
+        "Architecture",
+        "Design",
+        "Open source"
+      ],
+      "stackLabel": "Stack",
+      "stackCommand": "cat package.json | jq .dependencies",
+      "stack": [
+        {
+          "label": "TypeScript",
+          "icon": "si:typescript"
+        },
+        {
+          "label": "Python",
+          "icon": "si:python"
+        },
+        {
+          "label": "Go",
+          "icon": "si:go"
+        },
+        {
+          "label": "Next.js",
+          "icon": "si:nextdotjs"
+        },
+        {
+          "label": "React",
+          "icon": "si:react"
+        },
+        {
+          "label": "Flutter",
+          "icon": "si:flutter"
+        },
+        {
+          "label": "Hono",
+          "icon": "si:hono"
+        },
+        {
+          "label": "PostgreSQL",
+          "icon": "si:postgresql"
+        },
+        {
+          "label": "Redis",
+          "icon": "si:redis"
+        },
+        {
+          "label": "Docker",
+          "icon": "si:docker"
+        },
+        {
+          "label": "Kubernetes",
+          "icon": "si:kubernetes"
+        },
+        {
+          "label": "Terraform",
+          "icon": "si:terraform"
+        }
+      ]
+    },
+    "security": {
+      "label": "Security",
       "role": "Cybersecurity specialist · Former INSA red team",
       "statement": "I find security weaknesses so they can be fixed.",
       "focus": "TryHackMe top 2% · Hack The Box global rank 1049",
@@ -192,77 +265,6 @@
         {
           "label": "John the Ripper",
           "icon": "lucide:key-round"
-        }
-      ]
-    },
-    "light": {
-      "label": "dev",
-      "banner": "code",
-      "role": "Full-stack software engineer · Co-founder & CTO",
-      "statement": "I build web products from the interface to the infrastructure.",
-      "focus": "Co-founder & CTO, Solvix Labs PLC · building Axova",
-      "disciplines": [
-        "Frontend",
-        "Backend",
-        "Mobile",
-        "APIs",
-        "Databases",
-        "DevOps",
-        "Cloud",
-        "Architecture",
-        "Design",
-        "Open source"
-      ],
-      "stackLabel": "Stack",
-      "stackCommand": "cat package.json | jq .dependencies",
-      "stack": [
-        {
-          "label": "TypeScript",
-          "icon": "si:typescript"
-        },
-        {
-          "label": "Python",
-          "icon": "si:python"
-        },
-        {
-          "label": "Go",
-          "icon": "si:go"
-        },
-        {
-          "label": "Next.js",
-          "icon": "si:nextdotjs"
-        },
-        {
-          "label": "React",
-          "icon": "si:react"
-        },
-        {
-          "label": "Flutter",
-          "icon": "si:flutter"
-        },
-        {
-          "label": "Hono",
-          "icon": "si:hono"
-        },
-        {
-          "label": "PostgreSQL",
-          "icon": "si:postgresql"
-        },
-        {
-          "label": "Redis",
-          "icon": "si:redis"
-        },
-        {
-          "label": "Docker",
-          "icon": "si:docker"
-        },
-        {
-          "label": "Kubernetes",
-          "icon": "si:kubernetes"
-        },
-        {
-          "label": "Terraform",
-          "icon": "si:terraform"
         }
       ]
     }

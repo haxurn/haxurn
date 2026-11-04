@@ -81,13 +81,17 @@ function svg(width, height, label, theme, body, style = '') {
     + `<rect x="${INSET}" y=".5" width="${frameWidth}" height="${frameHeight}" rx="${RADIUS}" fill="none" stroke="${theme.border}"/></svg>`;
 }
 
-function bannerBlock(canvas, theme, mode, width) {
+/** Both worlds in one strip: security's falling code on the left, software's code lines on the right. */
+function bannerBlock(canvas, theme, width) {
+  const half = width / 2;
+  const options = { width: half, height: BANNER_HEIGHT - 12, ink: theme.accentInk, muted: theme.surface2 };
   const dashes = [];
   for (let x = canvas.left; x < canvas.right; x += 12) {
     dashes.push(`<rect x="${x}" y="${BANNER_HEIGHT - 3}" width="8" height="3" fill="${theme.accentInk}"/>`);
   }
   return `<rect width="${width}" height="${BANNER_HEIGHT}" fill="${theme.bg}"/>`
-    + renderBanner({ pattern: mode.banner, width, height: BANNER_HEIGHT - 12, ink: theme.accentInk, muted: theme.surface2 })
+    + renderBanner({ ...options, pattern: 'rain' })
+    + `<g transform="translate(${half} 0)">${renderBanner({ ...options, pattern: 'code' })}</g>`
     + dashes.join('');
 }
 
@@ -119,41 +123,64 @@ function disciplineLines(canvas, type, theme, disciplines, top) {
   return { markup: parts.join(''), bottom: y + 16 };
 }
 
-export function renderHeader({ type, theme, mode, person, avatar }) {
+function statementBlock(canvas, type, theme, { statement, focus }, top) {
+  const contentX = canvas.left + MARGIN;
+  const lines = type.wrap(statement, STATEMENT_SIZE, STATEMENT_WIDTH, STATEMENT_MAX_LINES);
+  const firstY = top + 44;
+  const focusY = firstY + (lines.length - 1) * STATEMENT_LINE + 36;
+  const markup = [
+    ...lines.map((line, row) => canvas.text(line, contentX, firstY + row * STATEMENT_LINE, STATEMENT_SIZE, theme.fg)),
+    `<circle cx="${contentX + 4}" cy="${focusY - 4}" r="4" fill="${theme.accentInk}"/>`,
+    canvas.text(focus, contentX + 18, focusY, BODY_SIZE, theme.fgMuted),
+  ].join('');
+  return { markup, bottom: focusY + 28 };
+}
+
+export function renderHeader({ type, theme, person, avatar }) {
   const canvas = createCanvas(type, theme, WIDTH);
   const contentX = canvas.left + MARGIN;
   const promptTop = BANNER_HEIGHT;
   const identityTop = promptTop + PROMPT_HEIGHT;
   const identityBottom = identityTop + IDENTITY_HEIGHT;
   const nameX = contentX + AVATAR_SIZE + 22;
-  const disciplines = disciplineLines(canvas, type, theme, mode.disciplines, identityBottom);
-  const statement = type.wrap(mode.statement, STATEMENT_SIZE, STATEMENT_WIDTH, STATEMENT_MAX_LINES);
-  const statementTop = disciplines.bottom + 44;
-  const focusY = statementTop + (statement.length - 1) * STATEMENT_LINE + 36;
-  const height = focusY + 28;
+  const statement = statementBlock(canvas, type, theme, person, identityBottom);
 
   const body = [
-    bannerBlock(canvas, theme, mode, WIDTH),
+    bannerBlock(canvas, theme, WIDTH),
     canvas.spans([[person.prompt, theme.accentInk], [':~$ ', theme.fgSubtle], ['whoami', theme.fgMuted]], contentX, promptTop + 24, SMALL_SIZE).markup,
-    `<circle class="pulse" cx="${canvas.right - MARGIN - type.width(mode.label, SMALL_SIZE) - 12}" cy="${promptTop + 20}" r="3.5" fill="${theme.accentInk}"/>`,
-    canvas.text(mode.label, canvas.right - MARGIN, promptTop + 24, SMALL_SIZE, theme.fgMuted, { anchor: 'end' }),
+    `<circle class="pulse" cx="${canvas.right - MARGIN - type.width(person.label, SMALL_SIZE) - 12}" cy="${promptTop + 20}" r="3.5" fill="${theme.accentInk}"/>`,
+    canvas.text(person.label, canvas.right - MARGIN, promptTop + 24, SMALL_SIZE, theme.fgMuted, { anchor: 'end' }),
     canvas.hline(identityTop),
     portrait(theme, avatar, contentX, identityTop + 20),
     canvas.text(person.name, nameX, identityTop + 54, 24, theme.fg),
-    canvas.text(mode.role, nameX, identityTop + 80, BODY_SIZE, theme.fgMuted),
+    canvas.text(person.role, nameX, identityTop + 80, BODY_SIZE, theme.fgMuted),
     iconMarkup('lucide:map-pin', nameX, identityTop + 92, 13, theme.fgSubtle),
     canvas.text(person.location, nameX + 20, identityTop + 103, SMALL_SIZE, theme.fgSubtle),
     canvas.hline(identityBottom),
-    disciplines.markup,
-    canvas.hline(disciplines.bottom),
-    ...statement.map((line, row) => canvas.text(line, contentX, statementTop + row * STATEMENT_LINE, STATEMENT_SIZE, theme.fg)),
-    `<circle cx="${contentX + 4}" cy="${focusY - 4}" r="4" fill="${theme.accentInk}"/>`,
-    canvas.text(mode.focus, contentX + 18, focusY, BODY_SIZE, theme.fgMuted),
+    statement.markup,
   ].join('');
 
   const style = `${BANNER_STYLE}.pulse{animation:pulse 1.8s ease-in-out infinite}@keyframes pulse{50%{opacity:.3}}`
     + '@media (prefers-reduced-motion:reduce){.pulse{animation:none}}';
-  return svg(WIDTH, height, `${person.name}, ${mode.role}`, theme, body, style);
+  return svg(WIDTH, statement.bottom, `${person.name}, ${person.role}`, theme, body, style);
+}
+
+/** One side of the switcher: what this world is about, then its tools. */
+export function renderMode({ type, theme, mode }) {
+  const canvas = createCanvas(type, theme, WIDTH);
+  const statement = statementBlock(canvas, type, theme, mode, PROMPT_HEIGHT);
+  const disciplines = disciplineLines(canvas, type, theme, mode.disciplines, statement.bottom);
+  const chips = chipRows(canvas, type, theme, mode.stack, disciplines.bottom + 20);
+  const body = [
+    canvas.promptHead(mode.stackCommand, mode.label.toLowerCase()),
+    statement.markup,
+    canvas.hline(statement.bottom),
+    disciplines.markup,
+    canvas.hline(disciplines.bottom),
+    chips.markup,
+  ].join('');
+  const stackList = mode.stack.map(({ label }) => label).join(', ');
+  return svg(WIDTH, chips.bottom + 22, `${mode.label}: ${mode.role}. ${mode.stackLabel}: ${stackList}`, theme, body);
 }
 
 export function renderActivity({ type, theme, data }) {
@@ -217,14 +244,6 @@ function chipRows(canvas, type, theme, items, top) {
     return chip;
   });
   return { markup: chips.join(''), bottom: y + CHIP_HEIGHT };
-}
-
-export function renderStack({ type, theme, mode }) {
-  const canvas = createCanvas(type, theme, WIDTH);
-  const chips = chipRows(canvas, type, theme, mode.stack, PROMPT_HEIGHT + 20);
-  const height = chips.bottom + 22;
-  const body = canvas.promptHead(mode.stackCommand) + chips.markup;
-  return svg(WIDTH, height, `${mode.stackLabel}: ${mode.stack.map(({ label }) => label).join(', ')}`, theme, body);
 }
 
 export function renderLedger({ type, theme, repos, data, languageIcons }) {

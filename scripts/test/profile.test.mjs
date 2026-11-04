@@ -115,9 +115,12 @@ test('buildReadme emits themed pictures with a light and dark source per panel',
     header: { name: 'header', alt: 'Samson <T>' },
     cards: [{ name: 'card-01', alt: 'Axova', url: 'https://www.axova.io' }],
     activity: { name: 'activity', alt: 'Activity', url: 'https://github.com/haxurn' },
-    stack: { name: 'stack', alt: 'Stack', url: 'https://www.haxurn.space/skills' },
     ledger: { name: 'repos', alt: 'Repos', url: 'https://github.com/haxurn?tab=repositories' },
     links: [{ name: 'link-01', alt: 'Website', url: 'https://www.haxurn.space' }],
+    modes: [
+      { name: 'mode-software', alt: 'Software', label: 'Software', role: 'Engineer & CTO', isOpen: true },
+      { name: 'mode-security', alt: 'Security', label: 'Security', role: 'Red team', isOpen: false },
+    ],
   });
 
   assert.match(readme, /media="\(prefers-color-scheme: dark\)" srcset="\.\/profile\/generated\/header-dark\.svg\?v=abc"/);
@@ -125,6 +128,7 @@ test('buildReadme emits themed pictures with a light and dark source per panel',
   assert.match(readme, /alt="Samson &lt;T&gt;"/);
   assert.match(readme, /<a href="https:\/\/www\.axova\.io"><picture>/);
   assert.match(readme, /activity-dark\.svg/);
-  assert.match(readme, /stack-dark\.svg/);
+  assert.match(readme, /<details open>\s*<summary><b>Software<\/b> · Engineer &amp; CTO<\/summary>[\s\S]*mode-software-dark\.svg[\s\S]*?<\/details>/);
+  assert.match(readme, /<details>\s*<summary><b>Security<\/b> · Red team<\/summary>[\s\S]*mode-security-dark\.svg[\s\S]*?<\/details>/);
   assert.match(readme, /<img src="\.\/profile\/generated\/header-light\.svg\?v=abc"/);
 });

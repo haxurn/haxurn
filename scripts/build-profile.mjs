@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto';
 import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { loadProfileData } from './lib/github.mjs';
-import { renderActivity, renderCard, renderHeader, renderLedger, renderLink, renderStack } from './lib/panels.mjs';
+import { renderActivity, renderCard, renderHeader, renderLedger, renderLink, renderMode } from './lib/panels.mjs';
 import { buildReadme } from './lib/readme.mjs';
 import { createTypesetter } from './lib/text.mjs';
 
@@ -14,42 +14,44 @@ const numbered = (prefix, index) => `${prefix}-${String(index + 1).padStart(2, '
 
 function renderTheme(name, { config, data, type, avatar, images }) {
   const theme = config.themes[name];
-  const mode = config.modes[name];
   return {
-    header: renderHeader({ type, theme, mode, person: config.person, avatar }),
+    header: renderHeader({ type, theme, person: config.person, avatar }),
     ...Object.fromEntries(config.links.map(({ label, icon }, index) => [
       numbered('link', index),
       renderLink({ type, theme, label, icon }),
+    ])),
+    ...Object.fromEntries(Object.entries(config.modes).map(([id, mode]) => [
+      `mode-${id}`,
+      renderMode({ type, theme, mode }),
     ])),
     activity: renderActivity({ type, theme, data }),
     ...Object.fromEntries(config.featured.map((project, index) => [
       numbered('card', index),
       renderCard({ type, theme, project, imageData: images[index] }),
     ])),
-    stack: renderStack({ type, theme, mode }),
     repos: renderLedger({ type, theme, repos: config.repos, data, languageIcons: config.languageIcons }),
   };
 }
 
 function readmePanels(config, version) {
   const { person, featured, username, links, modes, repos } = config;
-  const { dark: hacker, light: dev } = modes;
-  const stackLabels = (mode) => mode.stack.map(({ label }) => label).join(', ');
   return {
     version,
-    header: { name: 'header', alt: `${person.name} (${person.alias}): ${dev.role}. ${hacker.role}. ${person.location}.` },
+    header: { name: 'header', alt: `${person.name} (${person.alias}): ${person.role}. ${person.location}.` },
     links: links.map(({ label, url }, index) => ({ name: numbered('link', index), alt: label, url })),
+    modes: Object.entries(modes).map(([id, mode], index) => ({
+      name: `mode-${id}`,
+      alt: `${mode.label}: ${mode.statement} ${mode.stackLabel}: ${mode.stack.map(({ label }) => label).join(', ')}.`,
+      label: mode.label,
+      role: mode.role,
+      isOpen: index === 0,
+    })),
     activity: { name: 'activity', alt: 'GitHub contributions over the last year', url: `https://github.com/${username}` },
     cards: featured.map((project, index) => ({
       name: numbered('card', index),
       alt: `${project.title}: ${project.summary}`,
       url: project.url,
     })),
-    stack: {
-      name: 'stack',
-      alt: `${dev.stackLabel}: ${stackLabels(dev)}. ${hacker.stackLabel}: ${stackLabels(hacker)}.`,
-      url: 'https://www.haxurn.space/skills',
-    },
     ledger: {
       name: 'repos',
       alt: `Selected repositories: ${repos.map(({ name }) => name).join(', ')}`,
